@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lobby — StarterCash</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/lobby.css">
+    <script src="assets/js/app.js" defer></script>
+    <script src="assets/js/lobby.js" defer></script>
+</head>
+
+<body>
+
+    <header class="top-bar container">
+        <img src="assets/img/startercash-logo.png" alt="StarterCash" class="logo-header"
+            onclick="location.href='index.html'">
+
+        <nav>
+            <a href="curso.html">Cursos</a>
+            <a href="battlepass.html">Passe de Batalha</a>
+            <a href="shop.html">Loja</a>
+        </nav>
+
+        <div class="user-info">
+            <input id="avatarUpload" type="file" accept="image/*" style="display:none">
+            <img src="assets/img/userDefault.png" class="pfp" alt="perfil"
+                onclick="document.getElementById('avatarUpload').click()">
+            <div style="text-align:right">
+                <div class="user-name" style="font-weight:700">Jogador</div>
+                <div style="font-size:13px;color:var(--muted)">Lv. <span class="user-level">1</span> • <span
+                        class="user-xp">120</span> XP</div>
+            </div>
+            <div style="margin-left:14px;text-align:right">
+                <div style="font-size:13px;color:var(--muted)">CoinsTech</div>
+                <div style="font-weight:800;font-size:16px" class="user-coins">12.900</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lobby-main container">
+        <div class="avatar-frame card" aria-hidden="false">
+            <img src="assets/img/stickavatar.png" alt="avatar">
+        </div>
+        <div class="avatar-name">Olá, <span class="user-name">Jogador</span></div>
+
+        <div class="action-row">
+            <button id="playBtn" class="play-btn" onclick="location.href='curso.html'" disabled>▶ Jogar</button>
+            <button class="store-btn" onclick="location.href='shop.html'">🛒 Loja</button>
+        </div>
+
+        <div class="stats-card">
+            <div><strong>Coins</strong>
+                <div class="user-coins">12.900</div>
+            </div>
+            <div style="margin-left:20px"><strong>XP</strong>
+                <div class="user-xp">120</div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

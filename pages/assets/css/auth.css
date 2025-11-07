@@ -1,0 +1,79 @@
+/* Auth background page */
+.auth-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #040b1a, #090f2b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px
+}
+
+/* Auth card */
+.auth-wrap {
+    min-height: 72vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px
+}
+
+.auth-card {
+    width: 420px;
+    border-radius: 14px;
+    padding: 28px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.3));
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6)
+}
+
+.auth-card .brand {
+    display: block;
+    text-align: center;
+    margin-bottom: 8px
+}
+
+.auth-card h2 {
+    color: var(--neon-cyan);
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 1.6rem
+}
+
+.label {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 10px
+}
+
+.input {
+    margin-top: 8px;
+    padding: 12px;
+    border-radius: 10px
+}
+
+.auth-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px
+}
+
+.auth-cta {
+    display: block;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 700
+}
+
+.auth-cta.primary {
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+    color: #071018
+}
+
+.small-link {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: var(--muted)
+}

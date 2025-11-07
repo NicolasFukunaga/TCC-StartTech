@@ -1,0 +1,161 @@
+:root {
+    /* B1 Neon Cyberpunk palette */
+    --bg-1: #061021;
+    /* very dark blue */
+    --bg-2: #131737;
+    /* deep navy */
+    --neon-cyan: #00f0ff;
+    --neon-blue: #3db0ff;
+    --neon-magenta: #b14bff;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --muted: #9fb6c6;
+    --text: #e6f8ff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.45;
+}
+
+/* layout containers */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px
+}
+
+.center {
+    text-align: center
+}
+
+/* header */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px
+}
+
+.logo {
+    height: 48px;
+    cursor: pointer
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 600
+}
+
+.nav-links a.cta {
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+    color: #041018
+}
+
+/* small buttons */
+.btn-small {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    cursor: pointer
+}
+
+/* cards */
+.card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
+    border-radius: 12px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+    color: #071018
+}
+
+.btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--text)
+}
+
+/* inputs */
+.input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--text)
+}
+
+/* footer base */
+.footer {
+    padding: 28px 18px;
+    text-align: center;
+    color: var(--muted);
+    margin-top: 36px
+}
+
+.footer .footer-line {
+    height: 1px;
+    width: 80%;
+    margin: 8px auto;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 2px
+}
+
+/* accessibility states */
+body.large-font {
+    font-size: 18px
+}
+
+body.high-contrast {
+    --bg-1: #000;
+    --bg-2: #000;
+    --text: #fff;
+    --muted: #ddd;
+    --neon-cyan: #FFD600;
+}
+
+/* responsive */
+@media (max-width:900px) {
+    .nav-links {
+        display: none
+    }
+}

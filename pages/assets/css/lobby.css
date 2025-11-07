@@ -1,0 +1,114 @@
+/* top bar */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px
+}
+
+.logo-header {
+    height: 44px
+}
+
+.top-bar nav a {
+    margin-left: 18px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.user-info .pfp {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    border: 2px solid var(--neon-cyan);
+    object-fit: cover
+}
+
+/* main layout */
+.lobby-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    gap: 18px
+}
+
+.avatar-frame {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.12));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.04);
+    overflow: hidden
+}
+
+.avatar-frame img {
+    width: 78%;
+    transform-origin: center;
+    animation: float 3.2s ease-in-out infinite
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-9px)
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}
+
+.avatar-name {
+    margin-top: 10px;
+    color: var(--neon-cyan);
+    font-weight: 700
+}
+
+/* actions */
+.action-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px
+}
+
+.play-btn {
+    padding: 12px 22px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+    color: #071018;
+    font-weight: 800
+}
+
+.store-btn {
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: none;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--text)
+}
+
+.stats-card {
+    margin-top: 18px;
+    background: rgba(0, 0, 0, 0.28);
+    padding: 12px 18px;
+    border-radius: 10px;
+    display: flex;
+    gap: 12px;
+    align-items: center
+}

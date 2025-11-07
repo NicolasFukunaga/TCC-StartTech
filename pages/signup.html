@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Cadastrar — StarterCash</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <script src="assets/js/app.js" defer></script>
+    <script src="assets/js/accessibility.js" defer></script>
+    <script src="assets/js/auth.js" defer></script>
+</head>
+
+<body class="auth-page">
+
+    <header class="site-header container">
+        <img src="assets/img/startercash-logo.png" alt="StarterCash" class="logo" onclick="location.href='index.html'">
+        <div class="access-controls">
+            <button id="accessibility-btn" class="btn-small">A+</button>
+            <button id="contrast-btn" class="btn-small">Alto contraste</button>
+        </div>
+    </header>
+
+    <main class="auth-wrap">
+        <div class="auth-card card">
+            <img src="assets/img/startercash-logo.png" alt="StarterCash"
+                style="width:72px;margin:0 auto 8px;display:block">
+            <h2>Crie sua conta</h2>
+
+            <form>
+                <label class="label">Nome completo</label>
+                <input name="name" class="input" type="text" required placeholder="Nome completo">
+
+                <label class="label">E-mail</label>
+                <input name="email" class="input" type="email" required placeholder="seu@email.com">
+
+                <label class="label">CPF</label>
+                <input name="cpf" class="input" type="text" required placeholder="000.000.000-00">
+
+                <label class="label">Crie sua senha</label>
+                <input name="password" class="input" type="password" required placeholder="Senha">
+
+                <label class="label">Confirme a senha</label>
+                <input name="password_confirm" class="input" type="password" required placeholder="Confirme a senha">
+
+                <div class="auth-actions">
+                    <button type="submit" class="auth-cta primary">Criar Conta</button>
+                    <a href="login.html" class="small-link">Já tem conta? Entrar</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>
