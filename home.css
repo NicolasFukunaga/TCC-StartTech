@@ -1,0 +1,44 @@
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: #6c63ff;
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #dcdcdc;
+}
+
+/* Cards de conteúdo */
+.cards-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 40px;
+    gap: 25px;
+}
+
+.card {
+    background: #222;
+    width: 280px;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid #6c63ff;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    border-color: #00d4ff;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #00d4ff;
+}
