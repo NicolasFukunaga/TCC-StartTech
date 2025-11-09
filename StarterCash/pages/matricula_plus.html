@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matricule-se | StarterCash</title>
+  <link rel="stylesheet" href="/StarterCash/assets/css/matricula.css" />
+</head>
+
+<body>
+  <!-- =======================================================
+       CABEÇALHO (MESMO DA HOME)
+       ======================================================= -->
+  <header class="cabecalho">
+    <div class="logo">
+      <img class="imagem_logo" src="/StarterCash/assets/img/logoStartercash.png" alt="Logo StarterCash" />
+      <h1 class="nome_logo">Starter<strong>Cash</strong></h1>
+    </div>
+
+    <nav class="menu">
+      <a href="/StarterCash/pages/home.html">Início</a>
+    </nav>
+  </header>
+
+  <!-- =======================================================
+       CONTEÚDO DE MATRÍCULA
+       ======================================================= -->
+  <main class="matricula-container">
+    <!-- LADO ESQUERDO: FORMULÁRIO -->
+    <section class="formulario-matricula">
+      <h2>Finalize sua matrícula</h2>
+      <p class="subtitulo">Plano <strong>Plus</strong> — R$ 19,90/mês</p>
+
+      <form class="formulario">
+        <input type="text" placeholder="Nome completo" required />
+        <input type="text" placeholder="CPF" maxlength="11" id="cpfInput">
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Crie uma senha" required />
+        <input type="password" placeholder="Confirme sua senha" required />
+      </form>
+
+      <h3>Forma de pagamento</h3>
+      <div class="opcoes-pagamento">
+        <button class="btn-principal pagamento pix">💚 PIX</button>
+        <button class="btn-principal pagamento cartao">💳 Cartão</button>
+        <button class="btn-principal pagamento boleto">🧾 Boleto</button>
+      </div>
+    </section>
+
+    <!-- LADO DIREITO: RESUMO DO PLANO -->
+    <aside class="resumo-plano">
+      <div class="card-plano">
+        <h3>Plano Plus</h3>
+        <p class="valor">R$ 19,90<span>/mês</span></p>
+
+        <ul>
+          <li>Tudo do Essential</li>
+          <li>Cursos intermediários e simuladores</li>
+          <li>Certificados de conclusão</li>
+        </ul>
+
+        <a href="#" class="btn-principal confirmar">Confirmar Matrícula</a>
+      </div>
+    </aside>
+  </main>
+
+  <!-- =======================================================
+       MODAL DE SUCESSO (já existente)
+       ======================================================= -->
+  <div class="modal-confirmacao" id="modalSucesso">
+    <div class="modal-conteudo">
+      <h2>Matrícula Confirmada!</h2>
+      <p>Bem-vindo à StarterCash 🎉</p>
+    </div>
+  </div>
+
+  <!-- =======================================================
+       MODAL DE ERRO (novo)
+       ======================================================= -->
+  <div class="modal-confirmacao" id="modalErro">
+    <div class="modal-conteudo">
+      <h2 style="color: #ff4d4d;">❌ Matrícula não realizada</h2>
+      <p>Verifique os campos e tente novamente.</p>
+    </div>
+  </div>
+
+  <!-- script separado -->
+  <script src="/StarterCash/assets/js/app.js"></script>
+</body>
+</html>
