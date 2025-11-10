@@ -121,28 +121,10 @@ body {
    ============================================================ */
 .home {
   color: #fff;
-  padding: 8rem 12rem;
+  margin-top: 8rem;
 }
 
 /* ==================== SEÇÃO HERO ==================== */
-main.home {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.hero {
-  position: relative;
-  width: 100vw;                       /* força largura da viewport */
-  margin-left: calc(50% - 50vw);      /* centraliza full-bleed dentro do container */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 6rem 4rem;                 /* ajusta espaçamento interno (mude se quiser) */
-  overflow: hidden;
-  min-height: 100vh;
-  color: #fff;
-  box-sizing: border-box;
-}
 
 /* Fundo de vídeo cobre toda a área da .hero */
 .video-fundo {
@@ -152,47 +134,68 @@ main.home {
   overflow: hidden;
 }
 
-.video-fundo iframe {
+.video-fundo video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 100vh;
-  min-width: 120%;
-  min-height: 120%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  pointer-events: none;
+  z-index: 0;
 }
 
-/* camada escura */
+/* Camada escura sobre o vídeo */
 .video-fundo::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.60);
+  background: rgba(0, 0, 0, 0.55);
   z-index: 1;
-
 }
 
-/* conteúdo acima do vídeo (texto e gif) */
-.texto-hero,
-.gif-hero {
+.hero {
   position: relative;
-  z-index: 1;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 🔥 adiciona isso */
+  height: 600px;
+  color: #fff;
+  box-sizing: border-box;
 }
 
-/* sobe um pouco o conteúdo */
+/* ===========================
+   CONTEÚDO CENTRAL (TEXTO)
+=========================== */
 .texto-hero {
-  transform: translateY(-40px);
+  text-align: center;
+  max-width: 100%;
+  z-index: 2;
 }
 
-.texto-hero h2,
+.texto-hero h2 {
+  font-size: 6rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  line-height: 1.3;
+  text-shadow: 0 0 18px rgb(0, 255, 242),
+               0 0 28px rgba(0, 255, 234, 0.4);
+}
+
 .texto-hero p {
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
+/* ===========================
+   BOTÃO PRINCIPAL
+=========================== */
 .btn-principal {
+  margin-top: 7rem;
   display: inline-block;
   background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
   background-size: 400% 400%;
@@ -212,8 +215,21 @@ main.home {
   box-shadow: 0 0 30px rgba(123, 47, 255, 1);
 }
 
-.gif-hero img {
-  width: 30rem;
+/* ===========================
+   MOEDA FLUTUANTE (FORA DA HERO)
+=========================== */
+.coin-float {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -100px; /* ajusta o quanto entra no vão roxo */
+  z-index: 5;
+  position: relative;
+}
+
+.coin-float img {
+  width: 220px;
+  animation: float 4s ease-in-out infinite;
 }
 
 /* ==================== SEÇÃO BENEFÍCIOS ==================== */
@@ -499,33 +515,36 @@ main.home {
   color: #fff;
 }
 
+/* Título da seção */
 .planos-intro h2 {
-  font-size: 3.6rem;
-  margin-bottom: 0.8rem;
-  text-shadow: 0 0 12px rgba(123,47,255,0.5);
+  font-size: 4rem; /* antes 3.6rem */
+  margin-bottom: 1rem;
+  text-shadow: 0 0 14px rgba(123,47,255,0.6);
 }
 
 .planos-intro p {
-  font-size: 1.8rem;
-  margin-bottom: 4rem;
+  font-size: 2rem; /* antes 1.8rem */
+  margin-bottom: 4.5rem;
   color: rgba(255,255,255,0.85);
 }
 
+/* Container dos cards */
 .plan-cards {
   display: flex;
   justify-content: center;
-  gap: 3.6rem;
+  gap: 4rem; /* mais espaçamento */
   align-items: stretch;
   flex-wrap: wrap;
 }
 
+/* Cards individuais */
 .plan-card {
-  width: 320px;
-  min-height: 450px;
+  width: 360px; /* antes 320px */
+  min-height: 500px; /* antes 450px */
   background: linear-gradient(180deg, rgba(21,17,37,0.85), rgba(15,12,30,0.95));
-  border-radius: 18px;
-  padding: 3rem 2.4rem;
-  box-shadow: 0 10px 25px rgba(10,6,30,0.5);
+  border-radius: 20px;
+  padding: 3.2rem 2.6rem;
+  box-shadow: 0 12px 28px rgba(10,6,30,0.5);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -539,46 +558,48 @@ main.home {
 
 .plan-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 18px 40px rgba(123,47,255,0.25);
+  box-shadow: 0 20px 45px rgba(123,47,255,0.3);
 }
 
+/* Destaque */
 .plan-destaque {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(123,47,255,0.35), 0 8px 30px rgba(0,255,242,0.06);
-  border: 1px solid rgba(123,47,255,0.45);
-  background: linear-gradient(180deg, rgba(123,47,255,0.12), rgba(7,3,20,0.95));
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(123,47,255,0.35), 0 10px 35px rgba(0,255,242,0.06);
+  border: 1px solid rgba(123,47,255,0.5);
+  background: linear-gradient(180deg, rgba(123,47,255,0.15), rgba(7,3,20,0.95));
 }
 
 .plan-destaque .badge {
   position: absolute;
-  top: -12px;
+  top: -14px;
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(90deg,#00ffff,#7b2fff);
   color: #fff;
-  padding: 0.6rem 1rem;
+  padding: 0.8rem 1.4rem;
   border-radius: 999px;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   box-shadow: 0 6px 18px rgba(123,47,255,0.25);
 }
 
+/* Topo do card */
 .plan-top {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .plan-top h3 {
-  font-size: 2.4rem;
+  font-size: 2.8rem; /* antes 2.4rem */
   letter-spacing: 0.4px;
   text-transform: uppercase;
 }
 
 .plan-price {
-  font-size: 2.2rem;
+  font-size: 2.6rem; /* antes 2.2rem */
   font-weight: 700;
   background: linear-gradient(270deg,#00ffff,#7b2fff,#00ffff);
   -webkit-background-clip: text;
@@ -588,18 +609,19 @@ main.home {
 }
 
 .price-small {
-  font-size: 1.4rem;
+  font-size: 1.6rem; /* antes 1.4rem */
   font-weight: 500;
   margin-left: 0.4rem;
   color: rgba(255,255,255,0.85);
 }
 
+/* Descrição e lista */
 .plan-desc {
   color: rgba(255,255,255,0.9);
-  margin-bottom: 1.4rem;
-  font-size: 1.55rem;
-  line-height: 1.5;
-  min-height: 70px;
+  margin-bottom: 1.6rem;
+  font-size: 1.65rem; /* antes 1.55rem */
+  line-height: 1.55;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -608,12 +630,12 @@ main.home {
 
 .plan-features {
   list-style: none;
-  margin: 0 0 2rem 0;
+  margin: 0 0 2.2rem 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-  font-size: 1.55rem;
+  gap: 1rem;
+  font-size: 1.65rem; /* antes 1.55rem */
   color: rgba(255,255,255,0.9);
   text-align: left;
   width: 100%;
@@ -621,8 +643,8 @@ main.home {
 
 .plan-features li {
   position: relative;
-  padding-left: 2.4rem;
-  line-height: 1.5;
+  padding-left: 2.6rem;
+  line-height: 1.6;
 }
 
 .plan-features li::before {
@@ -632,14 +654,15 @@ main.home {
   top: 0;
   color: #00ffff;
   text-shadow: 0 0 8px rgba(0,255,242,0.8);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
+/* Botão */
 .plan-cta {
   width: 100%;
-  padding: 1.2rem 1.6rem;
-  border-radius: 12px;
-  font-size: 1.6rem;
+  padding: 1.4rem 1.8rem; /* um pouco maior */
+  border-radius: 14px;
+  font-size: 1.8rem; /* antes 1.6rem */
   font-weight: bold;
   text-align: center;
   color: #fff;
@@ -647,27 +670,33 @@ main.home {
   background-size: 400% 400%;
   text-decoration: none;
   animation: gradientMove 5s ease infinite;
-  box-shadow: 0 0 20px rgba(0,255,242,0.7);
+  box-shadow: 0 0 22px rgba(0,255,242,0.7);
   transition: all 0.3s ease;
   margin-top: auto;
 }
 
 .plan-cta:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(123,47,255,0.9);
+  transform: scale(1.06);
+  box-shadow: 0 0 35px rgba(123,47,255,0.9);
 }
 
+/* Bordas */
 .plan-free {
-  border: 1px solid rgba(0,255,242,0.06);
+  border: 1px solid rgba(0,255,242,0.08);
+}
+.plan-free .plan-price {
+  align-self: flex-start; /* alinha à esquerda */
+  margin-left: 1.2rem;    /* empurra um pouco pra dentro */
 }
 
 .plan-pro {
-  border: 1px solid rgba(123,47,255,0.08);
+  border: 1px solid rgba(123,47,255,0.1);
 }
 
 .plan-pro .plan-cta {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.9rem;
 }
+
 
 /* ============================================================
    MEDIA QUERY - NOTEBOOKS (entre 1024px e 1366px)

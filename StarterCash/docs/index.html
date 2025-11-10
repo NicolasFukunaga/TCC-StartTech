@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StarterCash</title>
-  <link rel="stylesheet" href="/StarterCash/assets/css/style.css">
+  <link rel="stylesheet" href="/StarterCash/assets/css/style.css" />
 </head>
 
 <body>
@@ -14,14 +14,18 @@
       <button class="fechar" id="fecharModal">×</button>
 
       <div class="conteudo-modal" id="modalLogin">
-        <h1 class="modal-nome-logo">Starter<strong>Cash</strong><br>Login</h1>
+        <h1 class="modal-nome-logo">
+          Starter<strong>Cash</strong><br />Login
+        </h1>
+
         <form class="formulario">
-          <input type="email" placeholder="Email" required>
-          <input type="password" placeholder="Senha" required>
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Senha" required />
           <button type="submit" class="btn-principal">Entrar</button>
         </form>
+
         <p class="subtexto">
-          Não tem conta ainda? 
+          Não tem conta ainda?
           <a href="/StarterCash/docs/matricula_essential.html">Comece agora</a>
         </p>
       </div>
@@ -31,7 +35,7 @@
   <!-- HEADER -->
   <header class="cabecalho">
     <div class="logo">
-      <img class="imagem_logo" src="/StarterCash/assets/img/logoStartercash.png" alt="Logo StarterCash">
+      <img class="imagem_logo" src="/StarterCash/assets/img/logoStartercash.png" alt="Logo StarterCash" />
       <h1 class="nome_logo">Starter<strong>Cash</strong></h1>
     </div>
 
@@ -41,50 +45,56 @@
     </nav>
   </header>
 
+  <!-- CONTEÚDO PRINCIPAL -->
   <main class="home">
-  <!-- HERO -->
-  <section class="hero">
-    <!-- Vídeo de fundo -->
-    <div class="video-fundo">
-      <iframe 
-       src="https://www.youtube.com/embed/gVOWnMSaEdM?autoplay=1&mute=1&loop=1&playlist=gVOWnMSaEdM&controls=0&showinfo=0&modestbranding=1" 
-       frameborder="0" 
-       allow="autoplay; fullscreen" 
-       allowfullscreen>
-      </iframe>
-  </div>
+    <!-- HERO -->
+    <section class="hero">
+      <!-- 🎬 VÍDEO LOCAL DE FUNDO -->
+      <div class="video-fundo">
+        <video autoplay muted loop playsinline>
+          <source src="/StarterCash/assets/gifs/Visual Classic Blue Galaxy HD - JHAG Productions (1080p, h264, youtube).mp4" type="video/mp4" />
+        </video>
+      </div>
 
-    <!-- Conteúdo -->
-    <div class="texto-hero">
-      <h2>Aprenda <strong>Educação Financeira</strong> de um jeito divertido!</h2>
-      <p>Domine suas finanças enquanto joga, conquista recompensas e suba de nível com a StarterCash!</p>
-      <a href="/StarterCash/pages/matricula_essential.html" class="btn-principal">Começar Agora</a>
-    </div>
+      <!-- Texto principal -->
+      <div class="texto-hero">
+        <h2>
+          Aprenda <strong>Educação Financeira</strong> de um jeito divertido!
+        </h2>
+        <p>
+          Domine suas finanças enquanto joga, conquista recompensas e suba de
+          nível com a StarterCash!
+        </p>
+        <a href="/StarterCash/docs/matricula_essential.html" class="btn-principal">
+          Começar Agora
+        </a>
+      </div>
+    </section>
 
-    <div class="gif-hero">
-      <img src="/StarterCash/assets/gifs/coin-20749.gif">
+    <!-- 💰 Moeda flutuante fora da HERO -->
+    <div class="coin-float">
+      <img src="/StarterCash/assets/gifs/coin-20749.gif" alt="Moeda girando" />
     </div>
-  </section>
-</main>
 
     <!-- BENEFÍCIOS -->
     <section class="beneficios">
       <h3>Por que aprender com a StarterCash?</h3>
+
       <div class="cards">
         <div class="card">
-          <img src="/StarterCash/assets/img/subindodenivel.png" alt="Subindo de nível">
+          <img src="/StarterCash/assets/img/subindodenivel.png" alt="Subindo de nível" />
           <h4>Progresso como em um jogo</h4>
           <p>Ganhe XP, desbloqueie conquistas e veja sua evolução financeira em tempo real.</p>
         </div>
 
         <div class="card">
-          <img src="/StarterCash/assets/img/recompensas.png" alt="recompensas">
+          <img src="/StarterCash/assets/img/recompensas.png" alt="Recompensas" />
           <h4>Desafios e Recompensas</h4>
           <p>Conclua missões financeiras e receba badges, prêmios e novas fases.</p>
         </div>
 
         <div class="card">
-          <img src="/StarterCash/assets/img/trabalhoemequipe.png" alt="Trabalho em equipe">
+          <img src="/StarterCash/assets/img/trabalhoemequipe.png" alt="Trabalho em equipe" />
           <h4>Aprenda com a comunidade</h4>
           <p>Compartilhe estratégias, dispute rankings e cresça junto de outros jogadores.</p>
         </div>
@@ -105,13 +115,17 @@
             <h3>Essential</h3>
             <span class="plan-price">R$ 0,00</span>
           </div>
-          <p class="plan-desc">Comece sua jornada financeira com lições básicas e desafios iniciais.</p>
+          <p class="plan-desc">
+            Comece sua jornada financeira com lições básicas e desafios iniciais.
+          </p>
           <ul class="plan-features">
             <li>Acesso às aulas introdutórias</li>
             <li>Testes e quizzes básicos</li>
             <li>Sem limite de tempo</li>
           </ul>
-          <a href="/StarterCash/docs/matricula_essential.html" class="btn-principal plan-cta">Matricule-se</a>
+          <a href="/StarterCash/docs/matricula_essential.html" class="btn-principal plan-cta">
+            Matricule-se
+          </a>
         </div>
 
         <!-- Plus -->
@@ -121,13 +135,17 @@
             <h3>Plus</h3>
             <span class="plan-price">R$ 19,90<span class="price-small">/mês</span></span>
           </div>
-          <p class="plan-desc">Aprofunde seus conhecimentos e desbloqueie ferramentas práticas.</p>
+          <p class="plan-desc">
+            Aprofunde seus conhecimentos e desbloqueie ferramentas práticas.
+          </p>
           <ul class="plan-features">
             <li>Tudo do Essential</li>
             <li>Cursos intermediários e simuladores</li>
             <li>Certificados de conclusão</li>
           </ul>
-          <a href="/StarterCash/docs/matricula_plus.html" class="btn-principal plan-cta">Matricule-se</a>
+          <a href="/StarterCash/docs/matricula_plus.html" class="btn-principal plan-cta">
+            Matricule-se
+          </a>
         </div>
 
         <!-- Pro -->
@@ -136,18 +154,23 @@
             <h3>PRO</h3>
             <p class="plan-price">R$ 39,90<span class="price-small">/mês</span></p>
           </div>
-          <p class="plan-desc">Tenha acesso completo, mentorias e a Aury — sua IA pessoal de aprendizado.</p>
+          <p class="plan-desc">
+            Tenha acesso completo, mentorias e a Aury — sua IA pessoal de aprendizado.
+          </p>
           <ul class="plan-features">
             <li>Tudo do Plus</li>
             <li>Acesso a mentorias e novos conteúdos mensais</li>
             <li>Acesso à Aury – assistente IA para revisar e guiar seus estudos</li>
           </ul>
-          <a href="/StarterCash/docs/matricula_pro.html" class="btn-principal plan-cta">Matricule-se</a>
+          <a href="/StarterCash/docs/matricula_pro.html" class="btn-principal plan-cta">
+            Matricule-se
+          </a>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer></footer>
 
   <script src="/StarterCash/assets/js/app.js"></script>
