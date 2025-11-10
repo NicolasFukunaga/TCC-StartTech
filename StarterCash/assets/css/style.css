@@ -21,9 +21,7 @@ html {
 body {
   background: radial-gradient(circle at top left, #1a0033, #0b001a 60%);
   color: #fff;
-  padding-top: 11rem; /* espaço para o cabeçalho fixo */
 }
-
 /* ============================================================
    CABEÇALHO (HEADER)
    ============================================================ */
@@ -42,12 +40,6 @@ body {
   overflow: hidden;
   box-shadow: 0 0 25px rgba(123, 47, 255, 0.4);
   transition: background-color 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
-}
-
-.cabecalho.scrolled {
-  background-color: rgba(15, 15, 23, 0.5);
-  opacity: 0.6;
-  transform: translateY(-10px);
 }
 
 .cabecalho::after {
@@ -133,24 +125,29 @@ body {
 }
 
 /* ==================== SEÇÃO HERO ==================== */
+main.home {
+  margin-top: 0;
+  padding-top: 0;
+}
+
 .hero {
   position: relative;
+  width: 100vw;                       /* força largura da viewport */
+  margin-left: calc(50% - 50vw);      /* centraliza full-bleed dentro do container */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 60px; /* reduzido para subir o conteúdo */
+  padding: 6rem 4rem;                 /* ajusta espaçamento interno (mude se quiser) */
   overflow: hidden;
   min-height: 100vh;
   color: #fff;
+  box-sizing: border-box;
 }
 
-/* Fundo de vídeo ocupando 100% da área até as bordas */
+/* Fundo de vídeo cobre toda a área da .hero */
 .video-fundo {
   position: absolute;
-  top: -10%;
-  left: -10%;
-  width: 120%;
-  height: 120%;
+  inset: 0;
   z-index: 0;
   overflow: hidden;
 }
@@ -159,21 +156,33 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 130%; /* cobre toda a largura */
-  height: 130%; /* cobre toda a altura */
+  width: 100vw;
+  height: 100vh;
+  min-width: 120%;
+  min-height: 120%;
   transform: translate(-50%, -50%);
   object-fit: cover;
   pointer-events: none;
 }
 
-/* Conteúdo acima do vídeo */
+/* camada escura */
+.video-fundo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.60);
+  z-index: 1;
+
+}
+
+/* conteúdo acima do vídeo (texto e gif) */
 .texto-hero,
 .gif-hero {
   position: relative;
   z-index: 1;
 }
 
-/* Sobe o conteúdo um pouco */
+/* sobe um pouco o conteúdo */
 .texto-hero {
   transform: translateY(-40px);
 }
@@ -672,7 +681,7 @@ body {
 
   .cabecalho {
     padding: 0 5rem;
-    height: 9rem;
+    height: 10rem;
   }
 
   .imagem_logo {
