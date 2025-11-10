@@ -191,6 +191,23 @@ body {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
+@keyframes floatText {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* sobe um pouquinho */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.texto-hero h2,
+.texto-hero p {
+  animation: floatText 4s ease-in-out infinite;
+}
+
 /* ===========================
    BOTÃO PRINCIPAL
 =========================== */
