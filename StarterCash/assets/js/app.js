@@ -93,3 +93,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000);
   });
 });
+
+// app.js
+
+// Seleciona elementos do modal de login
+const overlay = document.getElementById('overlay');
+const fecharModal = document.getElementById('fecharModal');
+const formLogin = document.querySelector('.formulario');
+
+// Abre modal de login ao clicar em "Entrar"
+document.querySelectorAll('[data-modal="login"]').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    overlay.style.display = 'flex';
+  });
+});
+
+// Fecha modal
+fecharModal.addEventListener('click', () => {
+  overlay.style.display = 'none';
+});
+
+// Quando o formulário de login for enviado
+formLogin.addEventListener('submit', (e) => {
+  e.preventDefault(); // Evita que a página recarregue
+
+  // Aqui você poderia adicionar validação de email/senha se quiser
+  // Por enquanto, só redireciona pro lobby
+  window.location.href = '/StarterCash/docs/lobby.html';
+});
+
