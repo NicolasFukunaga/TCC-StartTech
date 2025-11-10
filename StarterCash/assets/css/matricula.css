@@ -317,3 +317,97 @@ h3 {
   50% { transform: scale(1.05); opacity: 1; }
   100% { transform: scale(1); opacity: 1; }
 }
+
+/* ============================================================
+   MEDIA QUERY — OTIMIZAÇÃO PARA NOTEBOOKS (1024px - 1366px)
+   ============================================================ */
+@media (min-width: 1024px) and (max-width: 1366px) {
+
+  body {
+    padding-top: 9rem;
+  }
+
+   .cabecalho {
+    padding: 0 5rem;
+    height: 9rem;
+  }
+
+  .imagem_logo {
+    width: 8rem;
+  }
+
+  .nome_logo {
+    font-size: 3.2rem;
+  }
+
+  .menu a {
+    font-size: 1.4rem;
+    padding: 0.8rem 2rem;
+  }
+
+  /* Container principal */
+  .matricula-container {
+    gap: 4rem;
+    padding: 6rem 8rem;
+  }
+
+  .formulario-matricula {
+    padding: 3rem;
+  }
+
+  .formulario-matricula h2 {
+    font-size: 3rem;
+  }
+
+  .subtitulo {
+    font-size: 1.6rem;
+  }
+
+  .formulario input {
+    font-size: 1.4rem;
+    padding: 1.2rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  .btn-principal {
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+  }
+
+  /* Card resumo */
+  .card-plano {
+    padding: 3rem;
+    max-width: 360px;
+  }
+
+  .card-plano h3 {
+    font-size: 2.4rem;
+  }
+
+  .valor {
+    font-size: 2.2rem;
+  }
+
+  .valor span {
+    font-size: 1.4rem;
+  }
+
+  .card-plano li {
+    font-size: 1.4rem;
+  }
+
+  .modal-conteudo {
+    padding: 3rem 4rem;
+  }
+
+  .modal-conteudo h2 {
+    font-size: 2.4rem;
+  }
+
+  .modal-conteudo p {
+    font-size: 1.6rem;
+  }
+}

@@ -451,14 +451,6 @@ body {
 
 }
 
-
-
-/* ============================================================
-   ANIMAÇÃO LOGIN BRILHANTE
-   ============================================================ */
-
-
-
 /* ============================================================
    SEÇÃO PLANOS
    ============================================================ */
@@ -637,4 +629,149 @@ body {
 
 .plan-pro .plan-cta {
   margin-bottom: 0.7rem;
+}
+
+/* ============================================================
+   MEDIA QUERY - NOTEBOOKS (entre 1024px e 1366px)
+   ============================================================ */
+@media (min-width: 1024px) and (max-width: 1366px) {
+
+  /* Reduz um pouco o padding geral para aproveitar melhor o espaço */
+  body {
+    padding-top: 10rem;
+  }
+
+  .cabecalho {
+    padding: 0 5rem;
+    height: 9rem;
+  }
+
+  .imagem_logo {
+    width: 8rem;
+  }
+
+  .nome_logo {
+    font-size: 3.2rem;
+  }
+
+  .menu a {
+    font-size: 1.4rem;
+    padding: 0.8rem 2rem;
+  }
+
+  /* HERO */
+  .home {
+    padding: 6rem 8rem;
+  }
+
+  .hero {
+    gap: 4rem;
+  }
+
+  .texto-hero h2 {
+    font-size: 4rem;
+  }
+
+  .texto-hero p {
+    font-size: 2rem;
+  }
+
+  .gif-hero img {
+    width: 25rem;
+  }
+
+  /* BENEFÍCIOS */
+  .beneficios {
+    margin-top: 12rem;
+  }
+
+  .beneficios h3 {
+    font-size: 3.2rem;
+  }
+
+  .card {
+    width: 300px;
+    min-height: 340px;
+    padding: 2rem;
+  }
+
+  .card h4 {
+    font-size: 2.2rem;
+  }
+
+  .card p {
+    font-size: 1.6rem;
+  }
+
+  /* PLANOS */
+  .planos {
+    padding: 5rem 4rem;
+  }
+
+  .planos-intro h2 {
+    font-size: 3.2rem;
+  }
+
+  .planos-intro p {
+    font-size: 1.6rem;
+  }
+
+  .plan-cards {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 3rem;
+    flex-wrap: nowrap; /* impede que quebre linha */
+  }
+
+  .plan-card {
+    flex: 1 1 30%;
+    max-width: 30%; /* 3 colunas exatas */
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .plan-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(123, 47, 255, 0.8);
+  }
+
+  .plan-destaque {
+    transform: translateY(0);
+    box-shadow: 0 0 25px rgba(123, 47, 255, 0.35);
+  }
+
+  .plan-price {
+    font-size: 2rem;
+  }
+
+  .plan-desc {
+    font-size: 1.4rem;
+  }
+
+  .plan-features li {
+    font-size: 1.4rem;
+  }
+
+  /* MODAL LOGIN */
+  .modal {
+    max-width: 380px;
+    padding: 3rem 2.4rem;
+  }
+
+  .conteudo-modal input {
+    font-size: 1.4rem;
+  }
+
+  .conteudo-modal button {
+    font-size: 1.4rem;
+  }
+
+  .modal-nome-logo {
+    font-size: 2.8rem;
+  }
 }
