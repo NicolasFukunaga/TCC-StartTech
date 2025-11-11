@@ -1,3 +1,4 @@
+/* ======== FUNDO E LAYOUT GERAL ======== */
 body {
   background: radial-gradient(circle at top, #0a0a1a 0%, #050511 100%);
   color: #fff;
@@ -7,19 +8,19 @@ body {
   font-family: 'Arial', sans-serif;
 }
 
-/* Avatar ocupa toda a área da tela */
+/* ======== AVATAR FRAME ======== */
 .avatar-frame {
   position: fixed;
-  top: 30px; /* espaço pro header */
+  top: 45px; /* Espaço para o header */
   left: 0;
   width: 100vw;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 90px);
   border: none;
   background: transparent;
   z-index: 1;
 }
 
-/* ======== NOME DO AVATAR SOBRE A TELA ======== */
+/* ======== NOME DO AVATAR ======== */
 .avatar-nome {
   position: fixed;
   top: 85px;
@@ -31,20 +32,18 @@ body {
   text-shadow: 0 0 18px #7b2ff7;
   cursor: pointer;
   z-index: 10;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
 
 .avatar-nome:hover {
   transform: translateX(-50%) scale(1.05);
+  text-shadow: 0 0 22px #9d4edd;
 }
 
-/* ======== MODAL DO NOME ======== */
+/* ======== MODAL DE EDIÇÃO DE NOME ======== */
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(10, 10, 25, 0.9);
   display: flex;
   justify-content: center;
@@ -55,6 +54,7 @@ body {
   transition: opacity 0.4s ease;
 }
 
+/* Só aparece quando o JS adiciona a classe "show" */
 .overlay.show {
   opacity: 1;
   pointer-events: all;
@@ -90,6 +90,7 @@ body {
   color: #fff;
   font-size: 1.4rem;
   text-align: center;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .modal input:focus {
@@ -97,6 +98,7 @@ body {
   box-shadow: 0 0 15px #a855f7;
 }
 
+/* ======== BOTÃO PRINCIPAL ======== */
 .btn-principal {
   background: linear-gradient(90deg, #7b2ff7, #f107a3);
   color: white;
@@ -106,9 +108,10 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-principal:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
 }

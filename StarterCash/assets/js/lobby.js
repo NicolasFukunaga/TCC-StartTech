@@ -15,12 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("avatarNome", nome);
   };
 
-  // ======== MOSTRAR OU PEDIR NOME ========
+  // ======== MOSTRAR NOME SALVO (SEM MODAL) ========
   const nomeSalvo = localStorage.getItem("avatarNome");
   if (nomeSalvo) {
     atualizarNome(nomeSalvo);
   } else {
-    overlay.classList.add("show");
+    nomeEl.textContent = "Clique para definir nome";
   }
 
   // ======== SALVAR NOME NO MODAL ========
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ======== EDITAR NOME AO CLICAR ========
   nomeEl.addEventListener("click", () => {
-    inputNome.value = nomeEl.textContent;
+    inputNome.value = nomeEl.textContent === "Clique para definir nome" ? "" : nomeEl.textContent;
     overlay.classList.add("show");
     inputNome.focus();
   });
