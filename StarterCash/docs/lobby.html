@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <!-- HEADER -->
+  <!-- ======== CABEÇALHO ======== -->
   <header class="cabecalho">
     <div class="logo">
       <img class="imagem_logo" src="/StarterCash/assets/img/logoStartercash.png" alt="Logo StarterCash">
@@ -22,27 +22,25 @@
     </nav>
   </header>
 
-  <!-- CONTEÚDO PRINCIPAL -->
+  <!-- ======== CONTEÚDO PRINCIPAL ======== -->
   <main class="lobby-container">
     <section class="avatar-area">
-      <div id="avatar3D" class="avatar-canvas"></div>
-      <h2 id="avatarName" class="avatar-name"></h2>
-      <button id="editAvatar" class="btn-principal">Editar Avatar</button>
+      <div class="avatar-canvas"></div>
+      <h2 class="avatar-name"></h2>
+      <button class="btn-principal" id="editAvatar">Editar Avatar</button>
     </section>
   </main>
 
-  <!-- MODAL PARA ESCOLHER O NOME DO AVATAR -->
-  <div class="overlay" id="nameOverlay">
+  <!-- ======== MODAL PARA NOME DO AVATAR ======== -->
+  <div class="overlay">
     <div class="modal" role="dialog" aria-modal="true">
-      <div class="conteudo-modal">
-        <h2 class="modal-nome-logo">Escolha o nome do seu Avatar</h2>
-        <input type="text" id="avatarNameInput" placeholder="Digite o nome do seu avatar" required>
-        <button id="saveAvatarName" class="btn-principal">Salvar</button>
-      </div>
+      <h2 class="modal-nome-logo">Escolha o nome do seu Avatar</h2>
+      <input type="text" id="nomeAvatar" placeholder="Digite o nome do seu avatar" required>
+      <button id="saveAvatarName" class="btn-principal">Salvar</button>
     </div>
   </div>
 
-  <!-- SCRIPTS -->
+  <!-- ======== SCRIPTS ======== -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
   <script src="/StarterCash/assets/js/lobby.js"></script>
 </body>

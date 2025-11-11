@@ -1,10 +1,19 @@
 /* ============================================================
    FONTES E RESET GERAL
+   ------------------------------------------------------------
+   - Importa a fonte Rajdhani.
+   - Define comportamento suave de rolagem.
+   - Remove margens/paddings padrão.
+   - Configura box-sizing global e estilo base.
    ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap');
 
 html {
   scroll-behavior: smooth;
+}
+html, body {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 * {
@@ -22,8 +31,12 @@ body {
   background: radial-gradient(circle at top left, #1a0033, #0b001a 60%);
   color: #fff;
 }
+
 /* ============================================================
    CABEÇALHO (HEADER)
+   ------------------------------------------------------------
+   - Define o topo fixo da página com logo e menu.
+   - Aplica sombra e borda gradiente animada.
    ============================================================ */
 .cabecalho {
   width: 100%;
@@ -42,6 +55,7 @@ body {
   transition: background-color 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
 }
 
+/* Linha gradiente decorativa na parte inferior do cabeçalho */
 .cabecalho::after {
   content: "";
   position: absolute;
@@ -57,6 +71,8 @@ body {
 
 /* ============================================================
    LOGO
+   ------------------------------------------------------------
+   - Define área da logo e anima o nome com gradiente.
    ============================================================ */
 .logo {
   display: flex;
@@ -75,6 +91,7 @@ body {
   letter-spacing: 1px;
 }
 
+/* Animação de gradiente no texto da logo */
 .nome_logo strong {
   background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
   background-size: 400% 400%;
@@ -87,6 +104,8 @@ body {
 
 /* ============================================================
    MENU DE NAVEGAÇÃO
+   ------------------------------------------------------------
+   - Define o layout dos links do menu e animações ao hover.
    ============================================================ */
 .menu {
   display: flex;
@@ -110,6 +129,7 @@ body {
   box-shadow: 0 0 15px rgba(123, 47, 255, 0.5);
 }
 
+/* Efeito de destaque ao passar o mouse */
 .menu a:hover {
   color: #fff;
   box-shadow: 0 0 25px rgba(123, 47, 255, 1);
@@ -117,16 +137,16 @@ body {
 }
 
 /* ============================================================
-   CONTEÚDO PRINCIPAL (MAIN)
+   CONTEÚDO PRINCIPAL (MAIN) / SEÇÃO HERO
+   ------------------------------------------------------------
+   - Define a seção principal com vídeo de fundo, textos e botão.
    ============================================================ */
 .home {
   color: #fff;
   margin-top: 8rem;
 }
 
-/* ==================== SEÇÃO HERO ==================== */
-
-/* Fundo de vídeo cobre toda a área da .hero */
+/* Fundo de vídeo ocupa toda a área da seção */
 .video-fundo {
   position: absolute;
   inset: 0;
@@ -134,6 +154,7 @@ body {
   overflow: hidden;
 }
 
+/* Configuração do vídeo */
 .video-fundo video {
   position: absolute;
   inset: 0;
@@ -141,6 +162,22 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: 0;
+}
+
+/* Borda gradiente animada ao redor do vídeo */
+.video-fundo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 3px;
+  background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
+  background-size: 400% 400%;
+  z-index: 2;
+  pointer-events: none;
+  animation: borderFlow 6s linear infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
 }
 
 /* Camada escura sobre o vídeo */
@@ -152,27 +189,36 @@ body {
   z-index: 1;
 }
 
+/* Animação de fluxo da borda */
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Estrutura geral da hero */
 .hero {
   position: relative;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   display: flex;
   align-items: center;
-  justify-content: center; /* 🔥 adiciona isso */
+  justify-content: center;
   height: 600px;
   color: #fff;
   box-sizing: border-box;
 }
 
-/* ===========================
-   CONTEÚDO CENTRAL (TEXTO)
-=========================== */
+/* ============================================================
+   CONTEÚDO CENTRAL (TEXTO HERO)
+   ============================================================ */
 .texto-hero {
   text-align: center;
   max-width: 100%;
   z-index: 2;
 }
 
+/* Título principal com sombra neon */
 .texto-hero h2 {
   font-size: 6rem;
   font-weight: 800;
@@ -182,6 +228,7 @@ body {
                0 0 28px rgba(0, 255, 234, 0.4);
 }
 
+/* Parágrafo da hero */
 .texto-hero p {
   font-size: 2rem;
   font-weight: 600;
@@ -191,26 +238,21 @@ body {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
+/* Animação de leve flutuação no texto */
 @keyframes floatText {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px); /* sobe um pouquinho */
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
 }
 
 .texto-hero h2,
 .texto-hero p {
-  animation: floatText 4s ease-in-out infinite;
+  animation: floatText 3s ease-in-out infinite;
 }
 
-/* ===========================
-   BOTÃO PRINCIPAL
-=========================== */
+/* ============================================================
+   BOTÃO PRINCIPAL (CALL TO ACTION)
+   ============================================================ */
 .btn-principal {
   margin-top: 7rem;
   display: inline-block;
@@ -227,19 +269,20 @@ body {
   transition: all 0.3s ease;
 }
 
+/* Efeito hover do botão */
 .btn-principal:hover {
   transform: scale(1.08);
   box-shadow: 0 0 30px rgba(123, 47, 255, 1);
 }
 
-/* ===========================
-   MOEDA FLUTUANTE (FORA DA HERO)
-=========================== */
+/* ============================================================
+   MOEDA FLUTUANTE (ANIMAÇÃO)
+   ============================================================ */
 .coin-float {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: -100px; /* ajusta o quanto entra no vão roxo */
+  margin-top: -100px;
   z-index: 5;
   position: relative;
 }
@@ -249,7 +292,119 @@ body {
   animation: float 4s ease-in-out infinite;
 }
 
-/* ==================== SEÇÃO BENEFÍCIOS ==================== */
+/* ============================================================
+   SEÇÃO: COMO FUNCIONA
+   ------------------------------------------------------------
+   - Cards explicativos com ícones, títulos e animações.
+   ============================================================ */
+.como-funciona {
+  padding: 8rem 4rem;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.como-funciona h2 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(123, 47, 255, 0.6);
+}
+
+.como-funciona .subtitulo {
+  font-size: 1.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 5rem;
+  font-weight: 500;
+  text-shadow: 0 0 10px rgba(123, 47, 255, 0.3);
+}
+
+/* GRID das etapas */
+.etapas {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+
+/* Card individual */
+.etapa {
+  background: #151525;
+  border-radius: 20px;
+  padding: 3.5rem 2.5rem;
+  width: 380px;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 25px rgba(123, 47, 255, 0.35);
+  border: 2px solid rgba(123, 47, 255, 0.25);
+}
+
+.etapa:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(123, 47, 255, 0.6);
+  border-color: rgba(123, 47, 255, 0.6);
+}
+
+/* Ícone ilustrativo */
+.etapa img {
+  width: 100px;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 15px rgba(123, 47, 255, 0.8));
+}
+
+/* Título com gradiente animado */
+.etapa h3 {
+  font-size: 2.6rem;
+  margin-bottom: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #7b2fff, #b84dff, #ff66cc, #7b2fff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientRoxo 7s ease infinite;
+  text-shadow: 0 0 12px rgba(123, 47, 255, 0.5);
+}
+
+/* Animação do gradiente roxo */
+@keyframes gradientRoxo {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Texto interno do card */
+.etapa p {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  max-width: 30rem;
+}
+
+/* Animação de flutuação lateral */
+@keyframes floatSide {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(25px); }
+  100% { transform: translateX(0); }
+}
+
+.etapa {
+  animation: floatSide 4s ease-in-out infinite;
+}
+
+/* ============================================================
+   SEÇÃO BENEFÍCIOS
+   ------------------------------------------------------------
+   - Cards descritivos sobre vantagens.
+   ============================================================ */
 .beneficios {
   margin-top: 20rem;
   text-align: center;
@@ -269,6 +424,7 @@ body {
   align-items: stretch;
 }
 
+/* Card de benefício */
 .card {
   background-color: #151525;
   border-radius: 20px;
@@ -307,7 +463,9 @@ body {
   box-shadow: 0 0 25px rgba(123, 47, 255, 0.8);
 }
 
-/* ==================== CTA FINAL ==================== */
+/* ============================================================
+   CTA FINAL
+   ============================================================ */
 .cta-final {
   text-align: center;
   margin-top: 10rem;
@@ -320,7 +478,7 @@ body {
 }
 
 /* ============================================================
-   ANIMAÇÕES
+   ANIMAÇÕES GERAIS
    ============================================================ */
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
@@ -340,6 +498,8 @@ body {
 
 /* ============================================================
    MODAL LOGIN STYLE - STARTERCASH
+   ------------------------------------------------------------
+   - Define aparência e animação de abertura do modal.
    ============================================================ */
 .overlay {
   position: fixed;
@@ -363,6 +523,7 @@ body {
   pointer-events: all;
 }
 
+/* Estrutura da janela modal */
 .modal {
   background: linear-gradient(145deg, #1a0033, #0b001a);
   color: #fff;
@@ -371,7 +532,8 @@ body {
   width: 100%;
   max-width: 420px;
   text-align: center;
-  box-shadow: 0 0 40px rgba(123, 47, 255, 0.6), 0 0 20px rgba(0, 255, 242, 0.5);
+  box-shadow: 0 0 40px rgba(123, 47, 255, 0.6),
+              0 0 20px rgba(0, 255, 242, 0.5);
   transform: translateY(40px);
   opacity: 0;
   transition: all 0.4s ease;
@@ -383,6 +545,7 @@ body {
   opacity: 1;
 }
 
+/* Botão "X" de fechar */
 .fechar {
   position: absolute;
   top: 1.2rem;
@@ -400,6 +563,7 @@ body {
   transform: rotate(90deg);
 }
 
+/* Conteúdo centralizado dentro do modal */
 .conteudo-modal {
   display: flex;
   flex-direction: column;
@@ -408,9 +572,14 @@ body {
   width: 100%;
 }
 
+/* ============================================================
+   TÍTULO DO MODAL (Login/Cadastro)
+   ============================================================ */
 .conteudo-modal h2 {
   font-size: 3rem;
   margin-bottom: 2rem;
+
+  /* Gradiente animado no texto */
   background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
   background-clip: text;
   -webkit-background-clip: text;
@@ -419,6 +588,9 @@ body {
   animation: gradientMove 5s ease infinite;
 }
 
+/* ============================================================
+   CAMPOS DE INPUT NO MODAL
+   ============================================================ */
 .conteudo-modal input {
   width: 100%;
   padding: 1.4rem;
@@ -431,12 +603,16 @@ body {
   transition: all 0.3s ease;
 }
 
+/* Efeito de foco no input */
 .conteudo-modal input:focus {
   border: 1px solid #00ffff;
   background-color: rgba(0, 255, 242, 0.1);
   outline: none;
 }
 
+/* ============================================================
+   BOTÃO PRINCIPAL DO MODAL
+   ============================================================ */
 .conteudo-modal button {
   width: 100%;
   padding: 1.4rem;
@@ -445,25 +621,32 @@ body {
   font-weight: bold;
   color: #fff;
   border: none;
-  background: linear-gradient(270deg,#00ffff,#7b2fff,#00ffff);
+
+  /* Gradiente animado com brilho */
+  background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
   background-size: 400% 400%;
   animation: gradientMove 5s ease infinite;
-  box-shadow: 0 0 20px rgba(0,255,242,0.7);
+  box-shadow: 0 0 20px rgba(0, 255, 242, 0.7);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
+/* Animação ao passar o mouse no botão */
 .conteudo-modal button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 35px rgba(123,47,255,0.9);
+  box-shadow: 0 0 35px rgba(123, 47, 255, 0.9);
 }
 
+/* ============================================================
+   SUBTEXTO DO MODAL (links e observações)
+   ============================================================ */
 .conteudo-modal .subtexto {
   margin-top: 1.4rem;
   font-size: 1.4rem;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 
+/* Links dentro do subtexto */
 .conteudo-modal .subtexto a {
   color: #00ffff;
   font-weight: 700;
@@ -471,6 +654,7 @@ body {
   transition: all 0.3s ease;
 }
 
+/* Efeito hover nos links */
 .conteudo-modal .subtexto a:hover {
   color: #7b2fff;
 }
@@ -485,12 +669,15 @@ body {
   margin-bottom: 2rem;
 }
 
+/* Nome principal da logo no modal */
 .modal-nome-logo {
   font-size: 3.2rem;
   font-weight: 700;
   color: #fff;
   letter-spacing: 1px;
   margin-bottom: 0.8rem;
+
+  /* Gradiente animado aplicado ao texto */
   background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
   background-size: 400% 400%;
   background-clip: text;
@@ -500,6 +687,7 @@ body {
   animation: gradientMove 5s ease infinite;
 }
 
+/* Repetição da logo (versão ajustada centralizada) */
 .modal-nome-logo {
   font-size: 3rem;
   font-weight: 700;
@@ -512,18 +700,19 @@ body {
   text-align: center;
 }
 
-/* Título Login normal */
+/* ============================================================
+   TÍTULO DO MODAL DE LOGIN
+   ============================================================ */
 .modal-login-titulo {
   font-size: 2.5rem;
   font-weight: 600;
   color: #ffffff; /* Branco sólido */
   margin-bottom: 2rem;
   text-align: center;
-
 }
 
 /* ============================================================
-   SEÇÃO PLANOS
+   SEÇÃO DE PLANOS
    ============================================================ */
 .planos {
   margin-top: 8rem;
@@ -534,34 +723,37 @@ body {
 
 /* Título da seção */
 .planos-intro h2 {
-  font-size: 4rem; /* antes 3.6rem */
+  font-size: 4rem;
   margin-bottom: 1rem;
-  text-shadow: 0 0 14px rgba(123,47,255,0.6);
+  text-shadow: 0 0 14px rgba(123, 47, 255, 0.6);
 }
 
+/* Subtítulo da seção */
 .planos-intro p {
-  font-size: 2rem; /* antes 1.8rem */
+  font-size: 2rem;
   margin-bottom: 4.5rem;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
 }
 
-/* Container dos cards */
+/* Container que agrupa os cards de planos */
 .plan-cards {
   display: flex;
   justify-content: center;
-  gap: 4rem; /* mais espaçamento */
+  gap: 4rem;
   align-items: stretch;
   flex-wrap: wrap;
 }
 
-/* Cards individuais */
+/* ============================================================
+   CARD INDIVIDUAL DE PLANO
+   ============================================================ */
 .plan-card {
-  width: 360px; /* antes 320px */
-  min-height: 500px; /* antes 450px */
-  background: linear-gradient(180deg, rgba(21,17,37,0.85), rgba(15,12,30,0.95));
+  width: 360px;
+  min-height: 500px;
+  background: linear-gradient(180deg, rgba(21, 17, 37, 0.85), rgba(15, 12, 30, 0.95));
   border-radius: 20px;
   padding: 3.2rem 2.6rem;
-  box-shadow: 0 12px 28px rgba(10,6,30,0.5);
+  box-shadow: 0 12px 28px rgba(10, 6, 30, 0.5);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -570,37 +762,43 @@ body {
   text-align: center;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   position: relative;
-  border: 1px solid rgba(123,47,255,0.12);
+  border: 1px solid rgba(123, 47, 255, 0.12);
 }
 
+/* Efeito hover no card */
 .plan-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 45px rgba(123,47,255,0.3);
+  box-shadow: 0 20px 45px rgba(123, 47, 255, 0.3);
 }
 
-/* Destaque */
+/* ============================================================
+   CARD DESTAQUE (plano principal)
+   ============================================================ */
 .plan-destaque {
   transform: translateY(-8px);
-  box-shadow: 0 24px 60px rgba(123,47,255,0.35), 0 10px 35px rgba(0,255,242,0.06);
-  border: 1px solid rgba(123,47,255,0.5);
-  background: linear-gradient(180deg, rgba(123,47,255,0.15), rgba(7,3,20,0.95));
+  box-shadow: 0 24px 60px rgba(123, 47, 255, 0.35), 0 10px 35px rgba(0, 255, 242, 0.06);
+  border: 1px solid rgba(123, 47, 255, 0.5);
+  background: linear-gradient(180deg, rgba(123, 47, 255, 0.15), rgba(7, 3, 20, 0.95));
 }
 
+/* Selo de destaque */
 .plan-destaque .badge {
   position: absolute;
   top: -14px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(90deg,#00ffff,#7b2fff);
+  background: linear-gradient(90deg, #00ffff, #7b2fff);
   color: #fff;
   padding: 0.8rem 1.4rem;
   border-radius: 999px;
   font-weight: 700;
   font-size: 1.3rem;
-  box-shadow: 0 6px 18px rgba(123,47,255,0.25);
+  box-shadow: 0 6px 18px rgba(123, 47, 255, 0.25);
 }
 
-/* Topo do card */
+/* ============================================================
+   TOPO DO CARD (nome e preço)
+   ============================================================ */
 .plan-top {
   display: flex;
   flex-direction: column;
@@ -609,34 +807,39 @@ body {
   margin-bottom: 1.2rem;
 }
 
+/* Nome do plano */
 .plan-top h3 {
-  font-size: 2.8rem; /* antes 2.4rem */
+  font-size: 2.8rem;
   letter-spacing: 0.4px;
   text-transform: uppercase;
 }
 
+/* Preço do plano */
 .plan-price {
-  font-size: 2.6rem; /* antes 2.2rem */
+  font-size: 2.6rem;
   font-weight: 700;
-  background: linear-gradient(270deg,#00ffff,#7b2fff,#00ffff);
+  background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 300% 300%;
   animation: gradientMove 5s ease infinite;
 }
 
+/* Complemento do preço */
 .price-small {
-  font-size: 1.6rem; /* antes 1.4rem */
+  font-size: 1.6rem;
   font-weight: 500;
   margin-left: 0.4rem;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
 }
 
-/* Descrição e lista */
+/* ============================================================
+   DESCRIÇÃO E LISTA DE BENEFÍCIOS
+   ============================================================ */
 .plan-desc {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 1.6rem;
-  font-size: 1.65rem; /* antes 1.55rem */
+  font-size: 1.65rem;
   line-height: 1.55;
   min-height: 80px;
   display: flex;
@@ -645,6 +848,7 @@ body {
   text-align: center;
 }
 
+/* Lista de recursos */
 .plan-features {
   list-style: none;
   margin: 0 0 2.2rem 0;
@@ -652,12 +856,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  font-size: 1.65rem; /* antes 1.55rem */
-  color: rgba(255,255,255,0.9);
+  font-size: 1.65rem;
+  color: rgba(255, 255, 255, 0.9);
   text-align: left;
   width: 100%;
 }
 
+/* Ícone ✔ personalizado */
 .plan-features li {
   position: relative;
   padding-left: 2.6rem;
@@ -670,192 +875,780 @@ body {
   left: 0;
   top: 0;
   color: #00ffff;
-  text-shadow: 0 0 8px rgba(0,255,242,0.8);
+  text-shadow: 0 0 8px rgba(0, 255, 242, 0.8);
   font-size: 1.6rem;
 }
 
-/* Botão */
+/* ============================================================
+   BOTÃO DE AÇÃO DO CARD
+   ============================================================ */
 .plan-cta {
   width: 100%;
-  padding: 1.4rem 1.8rem; /* um pouco maior */
+  padding: 1.4rem 1.8rem;
   border-radius: 14px;
-  font-size: 1.8rem; /* antes 1.6rem */
+  font-size: 1.8rem;
   font-weight: bold;
   text-align: center;
   color: #fff;
-  background: linear-gradient(270deg,#00ffff,#7b2fff,#00ffff);
+  background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
   background-size: 400% 400%;
   text-decoration: none;
   animation: gradientMove 5s ease infinite;
-  box-shadow: 0 0 22px rgba(0,255,242,0.7);
+  box-shadow: 0 0 22px rgba(0, 255, 242, 0.7);
   transition: all 0.3s ease;
   margin-top: auto;
 }
 
+/* Efeito hover do botão */
 .plan-cta:hover {
   transform: scale(1.06);
-  box-shadow: 0 0 35px rgba(123,47,255,0.9);
+  box-shadow: 0 0 35px rgba(123, 47, 255, 0.9);
 }
 
-/* Bordas */
+/* ============================================================
+   VARIAÇÕES DE CARD
+   ============================================================ */
 .plan-free {
-  border: 1px solid rgba(0,255,242,0.08);
+  border: 1px solid rgba(0, 255, 242, 0.08);
 }
 .plan-free .plan-price {
-  align-self: flex-start; /* alinha à esquerda */
-  margin-left: 1.2rem;    /* empurra um pouco pra dentro */
+  align-self: flex-start;
+  margin-left: 1.2rem;
 }
 
 .plan-pro {
-  border: 1px solid rgba(123,47,255,0.1);
+  border: 1px solid rgba(123, 47, 255, 0.1);
 }
 
 .plan-pro .plan-cta {
   margin-bottom: 0.9rem;
 }
 
+/* ============================================================
+   SEÇÃO: AURY - ASSISTENTE IA
+   ============================================================ */
+.aury-ia {
+  position: relative;
+  background: radial-gradient(circle at center, #0d001d 0%, #140028 100%);
+  color: #fff;
+  padding: 8rem 5rem;
+  text-align: left;
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow: 0 0 30px rgba(123, 47, 255, 0.25);
+}
+
+/* Borda animada externa */
+.aury-ia::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(120deg, #00ffff, #7b2fff, #00ffff);
+  background-size: 300% 300%;
+  border-radius: 25px;
+  animation: bordaAnimada 6s linear infinite;
+  z-index: 0;
+  filter: blur(8px);
+  opacity: 0.7;
+}
+
+/* Animação da borda */
+@keyframes bordaAnimada {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Fundo com padrão de circuito animado */
+.aury-ia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 255, 242, 0.05) 0px,
+      rgba(0, 255, 242, 0.05) 2px,
+      transparent 2px,
+      transparent 80px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(123, 47, 255, 0.05) 0px,
+      rgba(123, 47, 255, 0.05) 2px,
+      transparent 2px,
+      transparent 80px
+    ),
+    radial-gradient(circle at 50% 50%, rgba(123, 47, 255, 0.15), transparent 70%);
+  background-size: 160px 160px;
+  animation: circuitoFluxo 12s linear infinite;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+/* Movimento do padrão de circuito */
+@keyframes circuitoFluxo {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 160px 160px, -160px -160px, 0 0; }
+}
 
 /* ============================================================
-   MEDIA QUERY - NOTEBOOKS (entre 1024px e 1366px)
+   PARTÍCULAS DECORATIVAS LUMINOSAS
    ============================================================ */
-@media (min-width: 1024px) and (max-width: 1366px) {
+.aury-ia .particulas {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
 
-  /* Reduz um pouco o padding geral para aproveitar melhor o espaço */
-  body {
-    padding-top: 10rem;
+/* Ponto luminoso individual */
+.aury-ia .particula {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #00ffff, transparent);
+  border-radius: 50%;
+  animation: flutuarParticula linear infinite;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 8px #00ffff);
+}
+
+/* Movimento suave das partículas */
+@keyframes flutuarParticula {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
   }
-
-  .cabecalho {
-    padding: 0 5rem;
-    height: 10rem;
+  50% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 1;
   }
-
-  .imagem_logo {
-    width: 8rem;
-  }
-
-  .nome_logo {
-    font-size: 3.2rem;
-  }
-
-  .menu a {
-    font-size: 1.4rem;
-    padding: 0.8rem 2rem;
-  }
-
-  /* HERO */
-  .home {
-    padding: 6rem 8rem;
-  }
-
-  .hero {
-    gap: 4rem;
-  }
-
-  .texto-hero h2 {
-    font-size: 4rem;
-  }
-
-  .texto-hero p {
-    font-size: 2rem;
-  }
-
-  .gif-hero img {
-    width: 25rem;
-  }
-
-  /* BENEFÍCIOS */
-  .beneficios {
-    margin-top: 12rem;
-  }
-
-  .beneficios h3 {
-    font-size: 3.2rem;
-  }
-
-  .card {
-    width: 300px;
-    min-height: 340px;
-    padding: 2rem;
-  }
-
-  .card h4 {
-    font-size: 2.2rem;
-  }
-
-  .card p {
-    font-size: 1.6rem;
-  }
-
-  /* PLANOS */
-  .planos {
-    padding: 5rem 4rem;
-  }
-
-  .planos-intro h2 {
-    font-size: 3.2rem;
-  }
-
-  .planos-intro p {
-    font-size: 1.6rem;
-  }
-
-  .plan-cards {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 3rem;
-    flex-wrap: nowrap; /* impede que quebre linha */
-  }
-
-  .plan-card {
-    flex: 1 1 30%;
-    max-width: 30%; /* 3 colunas exatas */
-    min-height: 420px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .plan-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 25px rgba(123, 47, 255, 0.8);
-  }
-
-  .plan-destaque {
-    transform: translateY(0);
-    box-shadow: 0 0 25px rgba(123, 47, 255, 0.35);
-  }
-
-  .plan-price {
-    font-size: 2rem;
-  }
-
-  .plan-desc {
-    font-size: 1.4rem;
-  }
-
-  .plan-features li {
-    font-size: 1.4rem;
-  }
-
-  /* MODAL LOGIN */
-  .modal {
-    max-width: 380px;
-    padding: 3rem 2.4rem;
-  }
-
-  .conteudo-modal input {
-    font-size: 1.4rem;
-  }
-
-  .conteudo-modal button {
-    font-size: 1.4rem;
-  }
-
-  .modal-nome-logo {
-    font-size: 2.8rem;
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
   }
 }
+
+/* ============================================================
+   CONTEÚDO PRINCIPAL DA SEÇÃO AURY
+   ============================================================ */
+.aury-conteudo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Bloco de texto */
+.aury-texto {
+  flex: 1;
+  min-width: 350px;
+}
+
+.aury-texto h2 {
+  font-size: 4.4rem;
+  margin-bottom: 2.2rem;
+  line-height: 1.2;
+  text-shadow: 0 0 20px rgba(123, 47, 255, 0.6);
+}
+
+/* Palavras destacadas no título */
+.aury-texto h2 span {
+  background: linear-gradient(90deg, #00ffff, #7b2fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Parágrafos descritivos */
+.aury-texto p {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.aury-texto .descricao {
+  font-weight: 600;
+}
+
+.aury-texto .detalhes {
+  font-weight: 400;
+}
+
+.aury-texto .destaque {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #00ffff;
+  text-shadow: 0 0 12px rgba(0, 255, 242, 0.6);
+}
+
+/* Imagem principal da seção */
+.aury-imagem {
+  flex: 1;
+  text-align: center;
+}
+
+/* Efeito flutuante na imagem */
+.aury-imagem img {
+  width: 400px;
+  max-width: 100%;
+  animation: flutuarAury 5s ease-in-out infinite;
+  filter: drop-shadow(0 0 25px rgba(123, 47, 255, 0.6));
+}
+
+/* ============================================================
+   SEÇÃO: IMAGEM DA AURY - EFEITOS FUTURISTAS
+   ============================================================ */
+
+/* Moldura circular com efeitos de brilho e pulsação */
+.aury-frame {
+  position: relative;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(123, 47, 255, 0.25), rgba(0, 255, 242, 0.05));
+  box-shadow: 0 0 40px rgba(123, 47, 255, 0.4), inset 0 0 30px rgba(0, 255, 242, 0.3);
+  animation: pulsarBrilho 5s ease-in-out infinite;
+  overflow: hidden;
+}
+
+/* Imagem principal da Aury dentro da moldura */
+.aury-frame img {
+  width: 400px;
+  max-width: 100%;
+  filter: drop-shadow(0 0 25px rgba(0, 255, 242, 0.8));
+  animation: flutuarAury 6s ease-in-out infinite;
+  border-radius: 50%;
+}
+
+/* Linhas animadas de energia que giram ao redor da imagem */
+.energia-circuito {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(0, 255, 242, 0.1),
+    rgba(123, 47, 255, 0.5),
+    rgba(0, 255, 242, 0.1)
+  );
+  animation: girarCircuito 12s linear infinite;
+  mix-blend-mode: screen;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* ============================================================
+   ANIMAÇÕES DA AURY
+   ============================================================ */
+
+/* Gira suavemente as linhas de energia */
+@keyframes girarCircuito {
+  0% { transform: rotate(0deg); filter: blur(0px) brightness(1); }
+  50% { transform: rotate(180deg); filter: blur(1px) brightness(1.2); }
+  100% { transform: rotate(360deg); filter: blur(0px) brightness(1); }
+}
+
+/* Efeito de pulsação luminosa na moldura */
+@keyframes pulsarBrilho {
+  0%, 100% {
+    box-shadow:
+      0 0 40px rgba(123, 47, 255, 0.4),
+      inset 0 0 30px rgba(0, 255, 242, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 80px rgba(123, 47, 255, 0.8),
+      inset 0 0 50px rgba(0, 255, 242, 0.5);
+  }
+}
+
+/* ============================================================
+   ESPAÇAMENTO ENTRE SEÇÕES
+   ============================================================ */
+
+/* Margens padrão entre as seções principais */
+section, 
+.como-funciona,
+.beneficios,
+.planos,
+.cta-final {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+/* Espaçamentos adicionais para respiro visual */
+.hero { margin-bottom: 8rem; }
+.como-funciona { padding-top: 8rem; padding-bottom: 10rem; }
+.beneficios { padding-top: 8rem; padding-bottom: 10rem; }
+.planos { padding-top: 8rem; padding-bottom: 10rem; }
+.cta-final { margin-top: 8rem; margin-bottom: 8rem; }
+
+/* Aumenta espaçamento interno entre cards */
+.etapas, .cards, .plan-cards {
+  gap: 6rem;
+}
+
+/* ============================================================
+   SEÇÃO: FEEDBACK DE USUÁRIOS
+   ============================================================ */
+
+/* Container principal da seção de depoimentos */
+.feedback-section {
+  position: relative;
+  color: #fff;
+  padding: 8rem 4rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* ---- Títulos e subtítulo ---- */
+.feedback-section h2 {
+  font-size: 3.8rem;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 0 20px rgba(0, 255, 242, 0.6);
+}
+
+.feedback-section .subtitulo {
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 5rem;
+}
+
+/* ---- Carrossel de feedbacks ---- */
+.feedback-carousel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 280px;
+  perspective: 1000px;
+}
+
+/* Cartões individuais de feedback */
+.feedback-card {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+  transition: all 0.8s ease;
+  border: 2px solid rgba(0, 255, 242, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0, 253, 241, 0.25);
+  padding: 2.5rem 2rem;
+  width: 340px;
+  max-width: 90%;
+}
+
+/* Estado ativo do card */
+.feedback-card.active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  box-shadow: 0 0 40px rgba(0, 255, 242, 0.45);
+}
+
+/* Texto e nome do autor */
+.feedback-card p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.feedback-card h4 {
+  font-size: 1.4rem;
+  color: #00ffff;
+}
+
+/* Estilo das estrelas de avaliação */
+.estrelas {
+  font-size: 2rem;
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+
+/* ---- Botões do carrossel ---- */
+.feedback-controles {
+  margin-top: 3rem;
+}
+
+.feedback-controles button {
+  background: transparent;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  font-size: 2rem;
+  padding: 0.6rem 1.2rem;
+  margin: 0 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 255, 242, 0.3);
+}
+
+.feedback-controles button:hover {
+  background: #00ffff;
+  color: #0b0018;
+  box-shadow: 0 0 25px rgba(0, 255, 242, 0.8);
+}
+
+/* ---- Fundo animado com partículas ---- */
+.feedback-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background-image:
+    radial-gradient(circle, rgba(0, 255, 255, 0.3) 1px, transparent 2px),
+    radial-gradient(circle, rgba(123, 47, 255, 0.2) 1px, transparent 2px);
+  background-size: 120px 120px, 90px 90px;
+  animation: chuvaLuminosa 20s linear infinite;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* Animação da “chuva” de partículas */
+@keyframes chuvaLuminosa {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100px); }
+}
+
+/* Camadas de conteúdo sobre as partículas */
+.feedback-carousel,
+.feedback-controles,
+.feedback-section h2,
+.feedback-section .subtitulo {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   RODAPÉ (FOOTER)
+   ============================================================ */
+
+/* Container principal do rodapé */
+.footer {
+  background: radial-gradient(circle at top, #0a0016 0%, #14002b 100%);
+  color: #fff;
+  padding: 6rem 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(123, 47, 255, 0.25);
+  z-index: 10;
+}
+
+/* Layout do conteúdo interno */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col {
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+
+/* ---- Logo e título ---- */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-logo img {
+  width: 50px;
+  height: auto;
+}
+
+.footer-logo h3 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 6s linear infinite;
+}
+
+/* Animação do gradiente da logo */
+@keyframes gradientShift {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* ---- Texto e links ---- */
+.footer p {
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-top: 1.2rem;
+  max-width: 320px;
+}
+
+.footer h4 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 0 10px rgba(123, 47, 255, 0.5);
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer ul li a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.footer ul li a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+/* ---- Ícones sociais ---- */
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  font-size: 2rem;
+  color: #fff;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(123, 47, 255, 0.4);
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Cores individuais por rede */
+.social.instagram:hover { color: #e1306c; text-shadow: 0 0 15px #e1306c; }
+.social.twitter:hover { color: #1da1f2; text-shadow: 0 0 15px #1da1f2; }
+.social.youtube:hover { color: #ff0000; text-shadow: 0 0 15px #ff0000; }
+.social.discord:hover { color: #7289da; text-shadow: 0 0 15px #7289da; }
+
+/* ---- Parte inferior do rodapé ---- */
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+}
+
+.footer-bottom p {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* ============================================================
+   MINI CHAT AURY - ESTILO REVISADO E APRIMORADO
+   ============================================================ */
+
+.aury-chat-button {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: linear-gradient(135deg, #6a00ff, #9c27ff);
+  color: #fff;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(156, 39, 255, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 1000;
+}
+
+.aury-chat-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(156, 39, 255, 0.8);
+}
+
+/* Container principal */
+.aury-chat-container {
+  position: fixed;
+  bottom: 100px;
+  right: 25px;
+  width: 360px;
+  height: 480px;
+  background: #121212;
+  border: 2px solid #6a00ff;
+  border-radius: 18px;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(106, 0, 255, 0.4);
+  z-index: 1001;
+}
+
+.aury-chat-container.active {
+  display: flex;
+  animation: abrirChat 0.4s ease forwards;
+}
+
+@keyframes abrirChat {
+  from { transform: translateY(25px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Cabeçalho */
+/* ===== Cabeçalho aprimorado ===== */
+.aury-chat-header {
+  background: linear-gradient(90deg, #6a00ff, #8a2fff);
+  color: #fff;
+  padding: 14px 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px rgba(138, 47, 255, 0.4);
+}
+
+/* ===== Botão de fechar Aury ===== */
+.aury-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 3rem; /* AGORA GRANDE MESMO */
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 2px 6px;
+  line-height: 1;
+}
+
+.aury-close:hover {
+  color: #ff4f4f;
+  transform: scale(1.25) rotate(5deg);
+  text-shadow: 0 0 12px #ff4f4f;
+}
+
+
+/* Corpo do chat */
+.aury-chat-body {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #0e0e0e;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 15px;
+  scroll-behavior: smooth;
+}
+
+/* Bolhas de mensagem */
+.aury-message {
+  padding: 12px 16px;
+  border-radius: 14px;
+  max-width: 80%;
+  word-wrap: break-word;
+  line-height: 1.5;
+}
+
+.aury-message.usuario {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #6a00ff, #8f3dff);
+  color: #fff;
+  border-bottom-right-radius: 0;
+  font-size: 15px;
+}
+
+.aury-message.aury {
+  align-self: flex-start;
+  background: #242424;
+  color: #eaeaea;
+  border-bottom-left-radius: 0;
+  font-size: 15px;
+}
+
+/* Entrada de texto */
+.aury-chat-input {
+  display: flex;
+  background: #181818;
+  border-top: 1px solid #333;
+  padding: 10px;
+  align-items: center;
+  gap: 10px;
+}
+
+.aury-chat-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px;
+  background: #222;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.aury-chat-input input:focus {
+  background: #2c2c2c;
+  box-shadow: 0 0 8px rgba(106, 0, 255, 0.4);
+}
+
+.aury-chat-input button {
+  background: linear-gradient(135deg, #6a00ff, #9c27ff);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.aury-chat-input button:hover {
+  background: linear-gradient(135deg, #8e2fff, #b54bff);
+  transform: scale(1.05);
+}
+
+/* Scroll customizado */
+.aury-chat-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.aury-chat-body::-webkit-scrollbar-thumb {
+  background: #6a00ff;
+  border-radius: 10px;
+}
+
+/* ============================================================
+   MEDIA QUERY 
+   ============================================================ */
+
+
+
+

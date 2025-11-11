@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.querySelector(".overlay");
   const modal = document.querySelector(".modal");
   const inputNome = document.querySelector("#nomeAvatar");
-  const btnSalvar = document.querySelector("#salvarNome");
+  const btnSalvar = document.querySelector("#saveAvatarName"); // Corrigido ID
   const avatarNome = document.querySelector(".avatar-name");
 
   // ======== MOSTRAR OU NÃO O MODAL ========
@@ -25,9 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // Salva o nome
     localStorage.setItem("avatarNome", nome);
+
+    // Mostra o nome no lobby
     avatarNome.textContent = nome;
 
+    // Fecha o modal
     overlay.classList.remove("show");
   });
 
@@ -35,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(
     75,
-    320 / 400, // Proporção do canvas
+    320 / 400,
     0.1,
     1000
   );
@@ -44,9 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
     antialias: true,
     alpha: true,
   });
-  renderer.setSize(320, 400);
 
   const canvasContainer = document.querySelector(".avatar-canvas");
+  const width = canvasContainer.clientWidth;
+  const height = canvasContainer.clientHeight;
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(window.devicePixelRatio);
   canvasContainer.appendChild(renderer.domElement);
 
   // ======== ILUMINAÇÃO ========
@@ -58,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
   scene.add(ambient);
 
   // ======== AVATAR 3D TEMPORÁRIO ========
-  // (Você pode substituir por um modelo .glb real)
   const geometry = new THREE.SphereGeometry(1, 32, 32);
   const material = new THREE.MeshStandardMaterial({
     color: 0x8b5cf6,
@@ -81,8 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ======== REDIMENSIONAMENTO ========
   window.addEventListener("resize", () => {
-    const width = 320;
-    const height = 400;
+    const width = canvasContainer.clientWidth;
+    const height = canvasContainer.clientHeight;
     renderer.setSize(width, height);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();

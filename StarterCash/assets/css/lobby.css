@@ -40,14 +40,16 @@ body {
   margin: 0 auto 1.5rem;
   overflow: hidden;
   position: relative;
+  animation: avatarPulse 6s ease-in-out infinite;
 }
 
 /* ======== NOME DO AVATAR ======== */
 .avatar-name {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 0 15px #7b2ff7;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.8rem;
+  text-shadow: 0 0 18px #7b2ff7;
+  animation: nomeFlutua 4s ease-in-out infinite;
 }
 
 /* ======== BOTÃO EDITAR ======== */
@@ -91,35 +93,45 @@ body {
   pointer-events: all;
 }
 
+/* ======== AJUSTES DE MODAL - LOBBY ======== */
 .modal {
   background: #161631;
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: 20px;
+  padding: 2.5rem;
   text-align: center;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 0 30px rgba(120, 0, 255, 0.4);
+  width: 95%;
+  max-width: 500px;
+  box-shadow: 0 0 40px rgba(120, 0, 255, 0.5);
   animation: aparecer 0.4s ease forwards;
 }
 
 .modal-nome-logo {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  color: #fff;
-  text-shadow: 0 0 10px #7c3aed;
+  font-size: 2.2rem;
+  margin-bottom: 1.6rem;
+  color: #ffffff;
+  text-shadow: 0 0 12px #7c3aed;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  animation: modalGlow 3.8s ease-in-out infinite;
 }
 
 .modal input {
   width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
   border: none;
   outline: none;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-align: center;
+}
+
+#saveAvatarName {
+  font-size: 1.15rem;
+  padding: 1rem 2.2rem;
+  border-radius: 12px;
 }
 
 /* ======== ANIMAÇÕES ======== */
@@ -134,19 +146,50 @@ body {
   }
 }
 
-/* ======== RESPONSIVO ======== */
-@media (max-width: 768px) {
-  .avatar-canvas {
-    width: 260px;
-    height: 320px;
+@keyframes avatarPulse {
+  0% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 18px rgba(138, 43, 226, 0.18);
   }
-
-  .avatar-name {
-    font-size: 1.4rem;
+  50% {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 8px 40px rgba(138, 43, 226, 0.35);
   }
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 18px rgba(138, 43, 226, 0.18);
+  }
+}
 
-  .modal {
-    width: 85%;
-    padding: 1.5rem;
+@keyframes nomeFlutua {
+  0% {
+    transform: translateY(0);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.95;
+  }
+}
+
+@keyframes modalGlow {
+  0% {
+    transform: translateY(-6px);
+    text-shadow: 0 0 6px rgba(124, 58, 237, 0.35);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(0);
+    text-shadow: 0 0 20px rgba(124, 58, 237, 0.7);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-6px);
+    text-shadow: 0 0 6px rgba(124, 58, 237, 0.35);
+    opacity: 0.95;
   }
 }
