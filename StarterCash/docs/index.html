@@ -1,155 +1,441 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StarterCash</title>
-  <link rel="stylesheet" href="/StarterCash/assets/css/style.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StarterCash</title>
+    <link rel="stylesheet" href="/StarterCash/assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
 
-<body>
-  <!-- MODAL LOGIN -->
-  <div class="overlay" id="overlay">
-    <div class="modal" role="dialog" aria-modal="true">
-      <button class="fechar" id="fecharModal">×</button>
+  <body>
+    <!-- MODAL LOGIN -->
+    <div class="overlay" id="overlay">
+      <div class="modal" role="dialog" aria-modal="true">
+        <button class="fechar" id="fecharModal">×</button>
 
-      <div class="conteudo-modal" id="modalLogin">
-        <h1 class="modal-nome-logo">Starter<strong>Cash</strong><br>Login</h1>
-        <form class="formulario">
-          <input type="email" placeholder="Email" required>
-          <input type="password" placeholder="Senha" required>
-          <button type="submit" class="btn-principal">Entrar</button>
-        </form>
-        <p class="subtexto">
-          Não tem conta ainda? 
-          <a href="/StarterCash/docs/matricula_essential.html">Comece agora</a>
+        <div class="conteudo-modal" id="modalLogin">
+          <h1 class="modal-nome-logo">
+            Starter<strong>Cash</strong><br />Login
+          </h1>
+
+          <form class="formulario">
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Senha" required />
+            <button type="submit" class="btn-principal">Entrar</button>
+          </form>
+
+          <p class="subtexto">
+            Não tem conta ainda?
+            <a href="/StarterCash/docs/matricula_essential.html">Comece agora</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="cabecalho">
+      <div class="logo">
+        <img
+          class="imagem_logo"
+          src="/StarterCash/assets/img/logoStartercash.png"
+          alt="Logo StarterCash"
+        />
+        <h1 class="nome_logo">Starter<strong>Cash</strong></h1>
+      </div>
+
+      <nav class="menu">
+        <a href="#" data-modal="login">Entrar</a>
+        <a href="#planos">Ver Planos</a>
+      </nav>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="home">
+      <!-- HERO -->
+      <section class="hero">
+        <!-- 🎬 VÍDEO LOCAL DE FUNDO -->
+        <div class="video-fundo">
+          <video autoplay muted loop playsinline>
+            <source
+              src="/StarterCash/assets/gifs/Visual Classic Blue Galaxy HD - JHAG Productions (1080p, h264, youtube).mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+
+        <!-- Texto principal -->
+        <div class="texto-hero">
+          <h2>
+            Aprenda <strong>Educação Financeira</strong> de um jeito divertido!
+          </h2>
+          <p>
+            Domine suas finanças enquanto joga, conquista recompensas e suba de
+            nível com a StarterCash!
+          </p>
+          <a
+            href="/StarterCash/docs/matricula_essential.html"
+            class="btn-principal"
+          >
+            Começar Agora
+          </a>
+        </div>
+      </section>
+
+      <!-- 💰 Moeda flutuante fora da HERO -->
+      <div class="coin-float">
+        <img
+          src="/StarterCash/assets/gifs/coin-20749.gif"
+          alt="Moeda girando"
+        />
+      </div>
+      
+
+      <!-- COMO FUNCIONA -->
+      <section class="como-funciona">
+        <h2>Como Funciona a StarterCash</h2>
+        <p class="subtitulo">
+          Aprender sobre finanças nunca foi tão divertido — jogue, conquiste e
+          evolua!
         </p>
-      </div>
-    </div>
-  </div>
 
-  <!-- HEADER -->
-  <header class="cabecalho">
-    <div class="logo">
-      <img class="imagem_logo" src="/StarterCash/assets/img/logoStartercash.png" alt="Logo StarterCash">
-      <h1 class="nome_logo">Starter<strong>Cash</strong></h1>
-    </div>
-
-    <nav class="menu">
-      <a href="#" data-modal="login">Entrar</a>
-      <a href="#planos">Ver Planos</a>
-    </nav>
-  </header>
-
-  <main class="home">
-  <!-- HERO -->
-  <section class="hero">
-    <!-- Vídeo de fundo -->
-    <div class="video-fundo">
-      <iframe 
-       src="https://www.youtube.com/embed/gVOWnMSaEdM?autoplay=1&mute=1&loop=1&playlist=gVOWnMSaEdM&controls=0&showinfo=0&modestbranding=1" 
-       frameborder="0" 
-       allow="autoplay; fullscreen" 
-       allowfullscreen>
-      </iframe>
-  </div>
-
-    <!-- Conteúdo -->
-    <div class="texto-hero">
-      <h2>Aprenda <strong>Educação Financeira</strong> de um jeito divertido!</h2>
-      <p>Domine suas finanças enquanto joga, conquista recompensas e suba de nível com a StarterCash!</p>
-      <a href="/StarterCash/pages/matricula_essential.html" class="btn-principal">Começar Agora</a>
-    </div>
-
-    <div class="gif-hero">
-      <img src="/StarterCash/assets/gifs/coin-20749.gif">
-    </div>
-  </section>
-</main>
-
-    <!-- BENEFÍCIOS -->
-    <section class="beneficios">
-      <h3>Por que aprender com a StarterCash?</h3>
-      <div class="cards">
-        <div class="card">
-          <img src="/StarterCash/assets/img/subindodenivel.png" alt="Subindo de nível">
-          <h4>Progresso como em um jogo</h4>
-          <p>Ganhe XP, desbloqueie conquistas e veja sua evolução financeira em tempo real.</p>
-        </div>
-
-        <div class="card">
-          <img src="/StarterCash/assets/img/recompensas.png" alt="recompensas">
-          <h4>Desafios e Recompensas</h4>
-          <p>Conclua missões financeiras e receba badges, prêmios e novas fases.</p>
-        </div>
-
-        <div class="card">
-          <img src="/StarterCash/assets/img/trabalhoemequipe.png" alt="Trabalho em equipe">
-          <h4>Aprenda com a comunidade</h4>
-          <p>Compartilhe estratégias, dispute rankings e cresça junto de outros jogadores.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PLANOS -->
-    <section class="planos" id="planos" aria-label="Planos StarterCash">
-      <div class="planos-intro">
-        <h2>Escolha seu plano</h2>
-        <p>Comece de graça e desbloqueie recursos conforme sobe de nível.</p>
-      </div>
-
-      <div class="plan-cards">
-        <!-- Essential -->
-        <div class="plan-card plan-free">
-          <div class="plan-top">
-            <h3>Essential</h3>
-            <span class="plan-price">R$ 0,00</span>
+        <div class="etapas">
+          <div class="etapa">
+            <img
+              src="/StarterCash/assets/img/missao.png"
+              alt="Missões Financeiras"
+            />
+            <h3>1. Complete Missões</h3>
+            <p>
+              Enfrente desafios financeiros e aprenda conceitos como economia,
+              poupança e investimento de forma interativa.
+            </p>
           </div>
-          <p class="plan-desc">Comece sua jornada financeira com lições básicas e desafios iniciais.</p>
-          <ul class="plan-features">
-            <li>Acesso às aulas introdutórias</li>
-            <li>Testes e quizzes básicos</li>
-            <li>Sem limite de tempo</li>
-          </ul>
-          <a href="/StarterCash/docs/matricula_essential.html" class="btn-principal plan-cta">Matricule-se</a>
+
+          <div class="etapa">
+            <img
+              src="/StarterCash/assets/img/moedas.png"
+              alt="Ganhe Moedas Virtuais"
+            />
+            <h3>2. Ganhe Moedas</h3>
+            <p>
+              Acumule moedas virtuais ao concluir tarefas e alcance novas metas.
+              Use-as para desbloquear novos conteúdos.
+            </p>
+          </div>
+
+          <div class="etapa">
+            <img
+              src="/StarterCash/assets/img/levelup.png"
+              alt="Suba de Nível"
+            />
+            <h3>3. Suba de Nível</h3>
+            <p>
+              Conforme progride, desbloqueie fases mais complexas e torne-se um
+              mestre em educação financeira.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO: AURY - ASSISTENTE IA -->
+      <section class="aury-ia">
+        <!-- partículas de energia -->
+        <div class="particulas">
+          <div
+            class="particula"
+            style="top:10%; left:15%; animation-duration:5s;"
+          ></div>
+          <div
+            class="particula"
+            style="top:30%; left:70%; animation-duration:7s;"
+          ></div>
+          <div
+            class="particula"
+            style="top:50%; left:40%; animation-duration:6s;"
+          ></div>
+          <div
+            class="particula"
+            style="top:80%; left:60%; animation-duration:8s;"
+          ></div>
+          <div
+            class="particula"
+            style="top:20%; left:85%; animation-duration:9s;"
+          ></div>
         </div>
 
-        <!-- Plus -->
-        <div class="plan-card plan-destaque">
-          <div class="badge">Mais popular</div>
-          <div class="plan-top">
-            <h3>Plus</h3>
-            <span class="plan-price">R$ 19,90<span class="price-small">/mês</span></span>
+        <div class="aury-conteudo">
+          <div class="aury-texto">
+            <h2>Conheça <span>Aury</span> — sua assistente IA pessoal</h2>
+            <p class="descricao">
+              A <strong>Aury</strong> é uma inteligência artificial criada para
+              ser sua guia no universo da educação financeira. Ela entende o seu
+              nível de aprendizado, acompanha sua evolução e oferece dicas
+              práticas para melhorar seu desempenho.
+            </p>
+            <p class="detalhes">
+              Sempre que você tiver dúvidas, a Aury estará disponível em um chat
+              interativo dentro da plataforma — explicando conceitos, mostrando
+              exemplos e até sugerindo novos desafios para você completar. É
+              como ter uma mentora particular, 24 horas por dia!
+            </p>
+            <p class="destaque">
+              💬 Pergunte, aprenda e evolua — tudo com a ajuda de uma IA feita
+              para te ensinar de forma divertida e envolvente.
+            </p>
           </div>
-          <p class="plan-desc">Aprofunde seus conhecimentos e desbloqueie ferramentas práticas.</p>
-          <ul class="plan-features">
-            <li>Tudo do Essential</li>
-            <li>Cursos intermediários e simuladores</li>
-            <li>Certificados de conclusão</li>
-          </ul>
-          <a href="/StarterCash/docs/matricula_plus.html" class="btn-principal plan-cta">Matricule-se</a>
+
+          <div class="aury-imagem">
+            <div class="aury-frame">
+              <img
+                src="/StarterCash/assets/img/aury.png"
+                alt="Aury - Assistente IA da StarterCash"
+              />
+              <div class="energia-circuito"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENEFÍCIOS -->
+      <section class="beneficios">
+        <h3>Por que aprender com a StarterCash?</h3>
+
+        <div class="cards">
+          <div class="card">
+            <img
+              src="/StarterCash/assets/img/subindodenivel.png"
+              alt="Subindo de nível"
+            />
+            <h4>Progresso como em um jogo</h4>
+            <p>
+              Ganhe XP, desbloqueie conquistas e veja sua evolução financeira em
+              tempo real.
+            </p>
+          </div>
+
+          <div class="card">
+            <img
+              src="/StarterCash/assets/img/recompensas.png"
+              alt="Recompensas"
+            />
+            <h4>Desafios e Recompensas</h4>
+            <p>
+              Conclua missões financeiras e receba badges, prêmios e novas
+              fases.
+            </p>
+          </div>
+
+          <div class="card">
+            <img
+              src="/StarterCash/assets/img/trabalhoemequipe.png"
+              alt="Trabalho em equipe"
+            />
+            <h4>Aprenda com a comunidade</h4>
+            <p>
+              Compartilhe estratégias, dispute rankings e cresça junto de outros
+              jogadores.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLANOS -->
+      <section class="planos" id="planos" aria-label="Planos StarterCash">
+        <div class="planos-intro">
+          <h2>Escolha seu plano</h2>
+          <p>Comece de graça e desbloqueie recursos conforme sobe de nível.</p>
         </div>
 
-        <!-- Pro -->
-        <div class="plan-card plan-pro">
-          <div class="plan-top">
-            <h3>PRO</h3>
-            <p class="plan-price">R$ 39,90<span class="price-small">/mês</span></p>
+        <div class="plan-cards">
+          <!-- Essential -->
+          <div class="plan-card plan-free">
+            <div class="plan-top">
+              <h3>Essential</h3>
+              <span class="plan-price">R$ 0,00</span>
+            </div>
+            <p class="plan-desc">
+              Comece sua jornada financeira com lições básicas e desafios
+              iniciais.
+            </p>
+            <ul class="plan-features">
+              <li>Acesso às aulas introdutórias</li>
+              <li>Testes e quizzes básicos</li>
+              <li>Sem limite de tempo</li>
+            </ul>
+            <a
+              href="/StarterCash/docs/matricula_essential.html"
+              class="btn-principal plan-cta"
+            >
+              Matricule-se
+            </a>
           </div>
-          <p class="plan-desc">Tenha acesso completo, mentorias e a Aury — sua IA pessoal de aprendizado.</p>
-          <ul class="plan-features">
-            <li>Tudo do Plus</li>
-            <li>Acesso a mentorias e novos conteúdos mensais</li>
-            <li>Acesso à Aury – assistente IA para revisar e guiar seus estudos</li>
+
+          <!-- Plus -->
+          <div class="plan-card plan-destaque">
+            <div class="badge">Mais popular</div>
+            <div class="plan-top">
+              <h3>Plus</h3>
+              <span class="plan-price"
+                >R$ 19,90<span class="price-small">/mês</span></span
+              >
+            </div>
+            <p class="plan-desc">
+              Aprofunde seus conhecimentos e desbloqueie ferramentas práticas.
+            </p>
+            <ul class="plan-features">
+              <li>Tudo do Essential</li>
+              <li>Cursos intermediários e simuladores</li>
+              <li>Certificados de conclusão</li>
+            </ul>
+            <a
+              href="/StarterCash/docs/matricula_plus.html"
+              class="btn-principal plan-cta"
+            >
+              Matricule-se
+            </a>
+          </div>
+
+          <!-- Pro -->
+          <div class="plan-card plan-pro">
+            <div class="plan-top">
+              <h3>PRO</h3>
+              <p class="plan-price">
+                R$ 39,90<span class="price-small">/mês</span>
+              </p>
+            </div>
+            <p class="plan-desc">
+              Tenha acesso completo, mentorias e a Aury — sua IA pessoal de
+              aprendizado.
+            </p>
+            <ul class="plan-features">
+              <li>Tudo do Plus</li>
+              <li>Acesso a mentorias e novos conteúdos mensais</li>
+              <li>
+                Acesso à Aury – assistente IA para revisar e guiar seus estudos
+              </li>
+            </ul>
+            <a
+              href="/StarterCash/docs/matricula_pro.html"
+              class="btn-principal plan-cta"
+            >
+              Matricule-se
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEEDBACK -->
+      <section class="feedback-section">
+        <h2>O que nossos usuários dizem 💬</h2>
+        <p class="subtitulo">Depoimentos reais de quem já usa a StarterCash</p>
+
+        <div class="feedback-carousel">
+          <div class="feedback-card active">
+            <p>
+              “A Aury é incrível! Sinto que tenho uma mentora financeira 24h por
+              dia, com dicas práticas e diretas.”
+            </p>
+            <div class="estrelas">★★★★★</div>
+            <h4>— Mariana Costa</h4>
+          </div>
+
+          <div class="feedback-card">
+            <p>
+              “A plataforma é super envolvente e fácil de usar. Estou aprendendo
+              e aplicando na vida real!”
+            </p>
+            <div class="estrelas">★★★★★</div>
+            <h4>— Rafael Mendes</h4>
+          </div>
+
+          <div class="feedback-card">
+            <p>
+              “O sistema da StarterCash me ajudou a organizar minhas finanças de
+              forma divertida. Recomendo demais!”
+            </p>
+            <div class="estrelas">★★★★★</div>
+            <h4>— Carla Moreira</h4>
+          </div>
+        </div>
+
+        <div class="feedback-controles">
+          <button class="prev">←</button>
+          <button class="next">→</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <!-- LOGO + DESCRIÇÃO -->
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img
+              src="/StarterCash/assets/img/logoStartercash.png"
+              alt="Logo StarterCash"
+            />
+            <h3>Starter<strong>Cash</strong></h3>
+          </div>
+          <p>
+            A plataforma gamificada que transforma educação financeira em uma
+            jornada interativa. Aprenda, evolua e alcance sua liberdade
+            financeira com a ajuda da <strong>Aury</strong>.
+          </p>
+        </div>
+
+        <!-- LINKS RÁPIDOS -->
+        <div class="footer-col">
+          <h4>Explorar</h4>
+          <ul>
+            <li><a href="#">Início</a></li>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#">Missões</a></li>
+            <li><a href="#">Ranking</a></li>
           </ul>
-          <a href="/StarterCash/docs/matricula_pro.html" class="btn-principal plan-cta">Matricule-se</a>
+        </div>
+
+        <!-- SUPORTE -->
+        <div class="footer-col">
+          <h4>Suporte</h4>
+          <ul>
+            <li><a href="#">Central de Ajuda</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </div>
+
+        <!-- REDES SOCIAIS -->
+        <div class="footer-col">
+          <h4>Conecte-se</h4>
+          <div class="social-icons">
+            <a href="#" class="social instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="social twitter"
+              ><i class="fab fa-x-twitter"></i
+            ></a>
+            <a href="#" class="social youtube"
+              ><i class="fab fa-youtube"></i
+            ></a>
+            <a href="#" class="social discord"
+              ><i class="fab fa-discord"></i
+            ></a>
+          </div>
         </div>
       </div>
-    </section>
-  </main>
 
-  <footer></footer>
+      <!-- COPYRIGHT -->
+      <div class="footer-bottom">
+        <p>© 2025 StarterCash — Todos os direitos reservados.</p>
+      </div>
+    </footer>
 
-  <script src="/StarterCash/assets/js/app.js"></script>
-</body>
+    <script src="/StarterCash/assets/js/app.js"></script>
+  </body>
 </html>

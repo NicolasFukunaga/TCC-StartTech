@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StarterCash - Lobby</title>
+  <link rel="stylesheet" href="/StarterCash/assets/css/style.css">
+  <link rel="stylesheet" href="/StarterCash/assets/css/lobby.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <img class="imagem_logo" src="/StarterCash/assets/img/logoStartercash.png" alt="Logo StarterCash">
+      <h1 class="nome_logo">Starter<strong>Cash</strong></h1>
+    </div>
+    <nav class="menu">
+      <a href="/StarterCash/docs/lobby.html" class="ativo">Lobby</a>
+      <a href="/StarterCash/pages/cursos.html">Cursos</a>
+    </nav>
+  </header>
+
+  <!-- Avatar ocupa toda a tela -->
+  <iframe 
+    id="rpmAvatar" 
+    class="avatar-frame"
+    allow="camera *; microphone *; clipboard-write"
+    src=""
+  ></iframe>
+
+  <!-- Modal do Nome do Avatar -->
+  <div class="overlay" id="nameOverlay">
+    <div class="modal">
+      <h2 class="modal-nome-logo">Escolha o nome do seu Avatar</h2>
+      <input type="text" id="nomeAvatar" placeholder="Digite o nome do seu avatar" required>
+      <button id="saveAvatarName" class="btn-principal">Salvar</button>
+    </div>
+  </div>
+
+  <script src="/StarterCash/assets/js/lobby.js"></script>
+</body>
+</html>

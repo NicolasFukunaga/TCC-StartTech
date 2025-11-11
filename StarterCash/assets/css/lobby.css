@@ -1,0 +1,114 @@
+body {
+  background: radial-gradient(circle at top, #0a0a1a 0%, #050511 100%);
+  color: #fff;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Avatar ocupa toda a área da tela */
+.avatar-frame {
+  position: fixed;
+  top: 30px; /* espaço pro header */
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 70px);
+  border: none;
+  background: transparent;
+  z-index: 1;
+}
+
+/* ======== NOME DO AVATAR SOBRE A TELA ======== */
+.avatar-nome {
+  position: fixed;
+  top: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 18px #7b2ff7;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.avatar-nome:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* ======== MODAL DO NOME ======== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 25, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: #161631;
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  text-align: center;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 0 40px rgba(120, 0, 255, 0.5);
+  border: 2px solid rgba(124, 58, 237, 0.5);
+}
+
+.modal-nome-logo {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  font-weight: 800;
+  text-shadow: 0 0 12px #7c3aed;
+}
+
+.modal input {
+  width: 100%;
+  padding: 1.2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.modal input:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 15px #a855f7;
+}
+
+.btn-principal {
+  background: linear-gradient(90deg, #7b2ff7, #f107a3);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.btn-principal:hover {
+  transform: scale(1.05);
+}
