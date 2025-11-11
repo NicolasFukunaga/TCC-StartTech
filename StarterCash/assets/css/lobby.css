@@ -99,19 +99,20 @@ body {
 }
 
 /* ======== BOTÃO PRINCIPAL ======== */
-.btn-principal {
+/* ======== BOTÃO DE LOGOUT ======== */
+.logout-btn {
   background: linear-gradient(90deg, #7b2ff7, #f107a3);
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  cursor: pointer;
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-left: 1rem;
 }
 
-.btn-principal:hover {
+.logout-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.6);
 }
+

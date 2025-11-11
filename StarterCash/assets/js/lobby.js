@@ -82,3 +82,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// logout.js
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      // Limpa dados locais (opcional)
+      localStorage.clear();
+      sessionStorage.clear();
+
+      // Redireciona para a página inicial
+      window.location.href = "/StarterCash/docs/index.html";
+    });
+  }
+});
+
+
