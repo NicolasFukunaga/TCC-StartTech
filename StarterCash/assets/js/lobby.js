@@ -1,96 +1,84 @@
-// ======== LOBBY.JS ========
-
-// Espera o DOM carregar
 document.addEventListener("DOMContentLoaded", () => {
-  const overlay = document.querySelector(".overlay");
-  const modal = document.querySelector(".modal");
+  const rpmAvatar = document.querySelector("#rpmAvatar");
+  const overlay = document.querySelector("#nameOverlay");
   const inputNome = document.querySelector("#nomeAvatar");
-  const btnSalvar = document.querySelector("#saveAvatarName"); // Corrigido ID
-  const avatarNome = document.querySelector(".avatar-name");
+  const btnSalvar = document.querySelector("#saveAvatarName");
 
-  // ======== MOSTRAR OU NÃO O MODAL ========
-  let nomeSalvo = localStorage.getItem("avatarNome");
+  // ======== CRIAR ELEMENTO DE NOME SOBRE O AVATAR ========
+  const nomeEl = document.createElement("h2");
+  nomeEl.className = "avatar-nome";
+  document.body.appendChild(nomeEl);
 
-  if (!nomeSalvo) {
-    overlay.classList.add("show");
+  // ======== FUNÇÃO PARA ATUALIZAR NOME ========
+  const atualizarNome = (nome) => {
+    nomeEl.textContent = nome;
+    localStorage.setItem("avatarNome", nome);
+  };
+
+  // ======== MOSTRAR OU PEDIR NOME ========
+  const nomeSalvo = localStorage.getItem("avatarNome");
+  if (nomeSalvo) {
+    atualizarNome(nomeSalvo);
   } else {
-    avatarNome.textContent = nomeSalvo;
+    overlay.classList.add("show");
   }
 
-  // ======== SALVAR O NOME DO AVATAR ========
-  btnSalvar.addEventListener("click", () => {
+  // ======== SALVAR NOME NO MODAL ========
+  const salvarNome = () => {
     const nome = inputNome.value.trim();
     if (nome.length < 2) {
       alert("Escolha um nome com pelo menos 2 letras!");
       return;
     }
-
-    // Salva o nome
-    localStorage.setItem("avatarNome", nome);
-
-    // Mostra o nome no lobby
-    avatarNome.textContent = nome;
-
-    // Fecha o modal
+    atualizarNome(nome);
     overlay.classList.remove("show");
+  };
+
+  btnSalvar.addEventListener("click", salvarNome);
+  inputNome.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") salvarNome();
   });
 
-  // ======== THREE.JS CONFIG ========
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(
-    75,
-    320 / 400,
-    0.1,
-    1000
-  );
-
-  const renderer = new THREE.WebGLRenderer({
-    antialias: true,
-    alpha: true,
+  // ======== EDITAR NOME AO CLICAR ========
+  nomeEl.addEventListener("click", () => {
+    inputNome.value = nomeEl.textContent;
+    overlay.classList.add("show");
+    inputNome.focus();
   });
 
-  const canvasContainer = document.querySelector(".avatar-canvas");
-  const width = canvasContainer.clientWidth;
-  const height = canvasContainer.clientHeight;
-  renderer.setSize(width, height);
-  renderer.setPixelRatio(window.devicePixelRatio);
-  canvasContainer.appendChild(renderer.domElement);
-
-  // ======== ILUMINAÇÃO ========
-  const light = new THREE.PointLight(0xffffff, 1);
-  light.position.set(2, 2, 5);
-  scene.add(light);
-
-  const ambient = new THREE.AmbientLight(0x404040, 1.5);
-  scene.add(ambient);
-
-  // ======== AVATAR 3D TEMPORÁRIO ========
-  const geometry = new THREE.SphereGeometry(1, 32, 32);
-  const material = new THREE.MeshStandardMaterial({
-    color: 0x8b5cf6,
-    roughness: 0.3,
-    metalness: 0.7,
-  });
-  const avatar = new THREE.Mesh(geometry, material);
-  scene.add(avatar);
-
-  camera.position.z = 3;
-
-  // ======== ANIMAÇÃO ========
-  function animate() {
-    requestAnimationFrame(animate);
-    avatar.rotation.y += 0.01;
-    renderer.render(scene, camera);
+  // ======== READY PLAYER ME ========
+  const avatarSalvo = localStorage.getItem("avatarURL");
+  if (avatarSalvo) {
+    rpmAvatar.src = `https://readyplayer.me/render?model=${encodeURIComponent(avatarSalvo)}&scene=fullbody`;
+  } else {
+    abrirEditor();
   }
 
-  animate();
+  function abrirEditor() {
+    rpmAvatar.src = "https://readyplayer.me/avatar?frameApi";
+    rpmAvatar.style.display = "block";
+  }
 
-  // ======== REDIMENSIONAMENTO ========
-  window.addEventListener("resize", () => {
-    const width = canvasContainer.clientWidth;
-    const height = canvasContainer.clientHeight;
-    renderer.setSize(width, height);
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
+  // ======== EVENTOS DO READY PLAYER ME ========
+  window.addEventListener("message", (event) => {
+    if (event.origin !== "https://readyplayer.me") return;
+    const data = event.data;
+
+    if (data.eventName === "v1.frame.ready") {
+      rpmAvatar.contentWindow.postMessage(
+        JSON.stringify({
+          target: "readyplayerme",
+          type: "subscribe",
+          eventName: "v1.avatar.exported",
+        }),
+        "https://readyplayer.me"
+      );
+    }
+
+    if (data.source === "readyplayerme" && data.eventName === "v1.avatar.exported") {
+      const avatarURL = data.data.url;
+      localStorage.setItem("avatarURL", avatarURL);
+      rpmAvatar.src = `https://readyplayer.me/render?model=${encodeURIComponent(avatarURL)}&scene=fullbody`;
+    }
   });
 });

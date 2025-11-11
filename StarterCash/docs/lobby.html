@@ -7,41 +7,35 @@
   <link rel="stylesheet" href="/StarterCash/assets/css/style.css">
   <link rel="stylesheet" href="/StarterCash/assets/css/lobby.css">
 </head>
-
 <body>
-  <!-- ======== CABEÇALHO ======== -->
   <header class="cabecalho">
     <div class="logo">
       <img class="imagem_logo" src="/StarterCash/assets/img/logoStartercash.png" alt="Logo StarterCash">
       <h1 class="nome_logo">Starter<strong>Cash</strong></h1>
     </div>
-
     <nav class="menu">
-      <a href="/StarterCash/pages/lobby.html" class="ativo">Lobby</a>
+      <a href="/StarterCash/docs/lobby.html" class="ativo">Lobby</a>
       <a href="/StarterCash/pages/cursos.html">Cursos</a>
     </nav>
   </header>
 
-  <!-- ======== CONTEÚDO PRINCIPAL ======== -->
-  <main class="lobby-container">
-    <section class="avatar-area">
-      <div class="avatar-canvas"></div>
-      <h2 class="avatar-name"></h2>
-      <button class="btn-principal" id="editAvatar">Editar Avatar</button>
-    </section>
-  </main>
+  <!-- Avatar ocupa toda a tela -->
+  <iframe 
+    id="rpmAvatar" 
+    class="avatar-frame"
+    allow="camera *; microphone *; clipboard-write"
+    src=""
+  ></iframe>
 
-  <!-- ======== MODAL PARA NOME DO AVATAR ======== -->
-  <div class="overlay">
-    <div class="modal" role="dialog" aria-modal="true">
+  <!-- Modal do Nome do Avatar -->
+  <div class="overlay" id="nameOverlay">
+    <div class="modal">
       <h2 class="modal-nome-logo">Escolha o nome do seu Avatar</h2>
       <input type="text" id="nomeAvatar" placeholder="Digite o nome do seu avatar" required>
       <button id="saveAvatarName" class="btn-principal">Salvar</button>
     </div>
   </div>
 
-  <!-- ======== SCRIPTS ======== -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
   <script src="/StarterCash/assets/js/lobby.js"></script>
 </body>
 </html>
