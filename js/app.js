@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fecha o modal e redireciona para o lobby após 2 segundos
     setTimeout(() => {
       fecharTodosModais();
-      window.location.href = "/StarterCash/docs/lobby.html";
+      window.location.href = "../html/lobby.html";
     }, 2000);
   });
 });
@@ -127,7 +127,7 @@ fecharModal.addEventListener('click', () => {
 // Redireciona para o lobby ao enviar o formulário de login
 formLogin.addEventListener('submit', (e) => {
   e.preventDefault(); // Evita o recarregamento da página
-  window.location.href = '/StarterCash/docs/lobby.html';
+  window.location.href = '../html/lobby.html';
 });
 
 /* ============================================================

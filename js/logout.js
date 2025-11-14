@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Redireciona após 2 segundos
     setTimeout(() => {
-      window.location.href = "/StarterCash/index.html";
+      window.location.href = "../index.html";
     }, 2000);
   });
 });

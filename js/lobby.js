@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sessionStorage.clear();
 
       // Redireciona para a página inicial
-      window.location.href = "/StarterCash/docs/index.html";
+      window.location.href = "../index.html";
     });
   }
 });
