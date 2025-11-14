@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     logoutOverlay.classList.remove("show");
   });
 
+  
   // Confirma o logout
   confirmLogout.addEventListener("click", () => {
     logoutOverlay.classList.remove("show");

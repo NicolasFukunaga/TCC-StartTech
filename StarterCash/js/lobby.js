@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("avatarNome", nome);
   };
 
+  
   // ======== MOSTRAR NOME SALVO (SEM MODAL) ========
   const nomeSalvo = localStorage.getItem("avatarNome");
   if (nomeSalvo) {

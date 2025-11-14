@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
      MODAL DE LOGIN (botão "Entrar")
      ============================================================ */
 
+     
   const overlay = document.getElementById("overlay");
   const fecharModal = document.getElementById("fecharModal");
   const botaoLogin = document.querySelector('a[data-modal="login"]');
