@@ -1,6 +1,6 @@
 /* ======== FUNDO E LAYOUT GERAL ======== */
 body {
-  background: radial-gradient(circle at top, #0a0a1a 0%, #050511 100%);
+  background: radial-gradient(circle at top, #212152 0%, #0b0b23 100%);
   color: #fff;
   min-height: 100vh;
   margin: 0;
@@ -8,112 +8,289 @@ body {
   font-family: 'Arial', sans-serif;
 }
 
-/* ======== AVATAR FRAME ======== */
-.avatar-frame {
-  position: fixed;
-  top: 45px; /* Espaço para o header */
-  left: 0;
-  width: 100vw;
-  height: calc(100vh - 90px);
-  border: none;
-  background: transparent;
-  z-index: 1;
+
+
+/* SUBTÍTULO */
+.lobby-container p {
+  font-size: 2px;
+  opacity: 0.8;
+  margin-bottom: 35px;
 }
 
-/* ======== NOME DO AVATAR ======== */
-.avatar-nome {
-  position: fixed;
-  top: 85px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 0 0 18px #7b2ff7;
-  cursor: pointer;
-  z-index: 10;
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
-}
-
-.avatar-nome:hover {
-  transform: translateX(-50%) scale(1.05);
-  text-shadow: 0 0 22px #9d4edd;
-}
-
-/* ======== MODAL DE EDIÇÃO DE NOME ======== */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(10, 10, 25, 0.9);
+/* ==== BOTÕES ==== */
+.acoes-lobby {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 200;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
+  flex-direction: column;
+  gap: 18px;
 }
 
-/* Só aparece quando o JS adiciona a classe "show" */
-.overlay.show {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.modal {
-  background: #161631;
-  border-radius: 20px;
-  padding: 3rem 2rem;
-  text-align: center;
-  width: 90%;
-  max-width: 480px;
-  box-shadow: 0 0 40px rgba(120, 0, 255, 0.5);
-  border: 2px solid rgba(124, 58, 237, 0.5);
-}
-
-.modal-nome-logo {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #ffffff;
-  font-weight: 800;
-  text-shadow: 0 0 12px #7c3aed;
-}
-
-.modal input {
-  width: 100%;
-  padding: 1.2rem;
-  margin-bottom: 2rem;
+.btn {
+  padding: 16px;
   border-radius: 12px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  outline: none;
-  background: rgba(255, 255, 255, 0.05);
+  font-size: 18px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: 0.25s ease-in-out;
+  font-weight: 700;
+  border: 2px solid transparent;
+}
+
+/* BOTÃO PRINCIPAL */
+.btn-principal {
+  background: linear-gradient(135deg, #00eaff, #007bff);
   color: #fff;
-  font-size: 1.4rem;
-  text-align: center;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 12px cyan, 0 0 30px cyan inset;
+  border-color: rgba(0, 255, 255, 0.4);
 }
 
-.modal input:focus {
-  border-color: #a855f7;
-  box-shadow: 0 0 15px #a855f7;
+.btn-principal:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 20px cyan, 0 0 50px cyan inset;
 }
 
-/* ======== BOTÃO PRINCIPAL ======== */
-/* ======== BOTÃO DE LOGOUT ======== */
-.logout-btn {
-  background: linear-gradient(90deg, #7b2ff7, #f107a3);
-  color: #fff;
-  padding: 0.6rem 1.4rem;
-  border-radius: 10px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-left: 1rem;
+/* BOTÕES SECUNDÁRIOS */
+.btn-secundario {
+  background: rgba(0, 255, 255, 0.15);
+  color: cyan;
+  border: 2px solid rgba(0, 255, 255, 0.4);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
 }
 
-.logout-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 18px rgba(124, 58, 237, 0.6);
+.btn-secundario:hover {
+  background: rgba(0, 255, 255, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px cyan;
 }
+
+/* ANIMAÇÃO */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FONTE GAMER */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0b0f2d; /* Fundo escuro similar à sua imagem */
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Para garantir que nada transborde */
+}
+
+.container {
+    display: flex;
+    width: 90%; /* Ajuste a largura conforme necessário */
+    max-width: 1200px; /* Largura máxima para telas maiores */
+    background-color: #1a1e3d; /* Um fundo um pouco mais claro para o contêiner principal */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3); /* Um brilho sutil */
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column; /* Pilha vertical */
+    gap: 15px; /* Espaçamento entre os botões */
+    padding: 20px;
+    background-color: #121530; /* Fundo para o painel esquerdo */
+    border-radius: 10px;
+    margin-right: 30px; /* Espaçamento entre o painel esquerdo e o conteúdo principal */
+}
+
+.menu-button {
+    width: 250px; /* Largura fixa para todos os botões */
+    padding: 18px 25px;
+    background-color: #007bff; /* Cor base do botão (azul) */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Brilho ao redor do botão */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+    /* Degradê de azul como na sua "Image 1" */
+    background-image: linear-gradient(to right, #00c6ff, #0072ff);
+    border: 2px solid rgba(0, 255, 255, 0.8); /* Borda para o efeito de brilho */
+}
+
+.menu-button:hover {
+    background-image: linear-gradient(to right, #00e6ff, #0082ff); /* Um pouco mais claro no hover */
+    box-shadow: 0 0 25px rgba(0, 255, 255, 1); /* Aumenta o brilho */
+    transform: translateY(-2px); /* Efeito de "levantar" */
+    border: none;
+}
+
+.menu-button:active {
+    transform: translateY(0); /* Efeito de "pressionar" */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+/* Estilos para o conteúdo principal (avatar e missões) */
+.main-content {
+    flex-grow: 1; /* Ocupa o espaço restante */
+    display: flex;
+    justify-content: space-around; /* Distribui o avatar e as missões */
+    align-items: flex-start; /* Alinha no topo */
+    padding: 20px;
+}
+
+.avatar-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px; /* Ajuste a posição vertical do avatar */
+}
+
+.avatar-img {
+    width: 200px; /* Tamanho do avatar */
+    height: auto;
+    border-radius: 10px; /* Se a imagem tiver bordas */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Brilho sutil no avatar */
+}
+
+.avatar-info {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.coin-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: gold; /* Simula um ícone de moeda */
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.action-button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    background-image: linear-gradient(to right, #00c6ff, #0072ff);
+    border: 2px solid rgba(0, 255, 255, 0.8);
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+.action-button:hover {
+    background-image: linear-gradient(to right, #00e6ff, #0082ff);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 1);
+    transform: translateY(-2px);
+}
+
+.mission-area {
+    background-color: #121530;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px; /* Alinhar com o avatar */
+    min-width: 300px; /* Largura mínima para a área de missões */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+.mission-title {
+    color: #00c6ff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.mission-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mission-list li {
+    background-color: #1a1e3d;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-left: 5px solid #00c6ff;
+}
+
+.view-missions-button {
+    display: block;
+    width: 80%;
+    margin: 20px auto 0;
+    padding: 12px 20px;
+    background-image: linear-gradient(to right, #00c6ff, #0072ff);
+    border: 2px solid rgba(0, 255, 255, 0.8);
+    border-radius: 8px;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.view-missions-button:hover {
+    background-image: linear-gradient(to right, #00e6ff, #0082ff);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    transform: translateY(-1px);
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Empilha os painéis em telas pequenas */
+        width: 95%;
+        padding: 15px;
+    }
+
+    .left-panel {
+        margin-right: 0;
+        margin-bottom: 20px;
+        align-items: center; /* Centraliza botões em telas pequenas */
+    }
+
+    .menu-button {
+        width: 100%; /* Botões ocupam largura total */
+        max-width: 300px; /* Limita o tamanho em telas pequenas */
+    }
+
+    .main-content {
+        flex-direction: column; /* Empilha avatar e missões */
+        align-items: center;
+    }
+
+    .mission-area {
+        margin-top: 20px;
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+
+
+
+
+
+
+
 
 

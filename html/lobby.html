@@ -22,25 +22,34 @@
     </nav>
   </header>
 
-  <!-- Avatar ocupa toda a tela -->
-  <iframe 
-    id="rpmAvatar" 
-    class="avatar-frame"
-    allow="camera *; microphone *; clipboard-write"
-    src=""
-  ></iframe>
+  <main class="lobby-container">
+    <h2>Bem-vindo ao seu Lobby, <span id="usuarioNome">Usuário</span>!</h2>
+    <p>Aqui você pode acessar seus cursos, acompanhar seu progresso e gerenciar sua conta.</p>
 
-  <!-- Modal de edição de nome (só aparece quando clicar no nome) -->
-  <div class="overlay" id="nameOverlay">
-    <div class="modal">
-      <h2 class="modal-nome-logo">Editar nome do Avatar</h2>
-      <input type="text" id="nomeAvatar" placeholder="Digite o nome do seu avatar" required>
-      <button id="saveAvatarName" class="btn-principal">Salvar</button>
+    <section class="acoes-lobby">
+      <button class="btn-principal">Meus Cursos</button>
+      <button class="btn-secundario">Configurações da Conta</button>
+      <button class="btn-secundario">Inventário</button>
+      <button class="btn-secundario">Loja</button>
+      <button class="btn-secundario">Suporte</button>
+    </section>
+  </main>
+  <div class="main-content">
+            <div class="avatar-area">
+                <img src="avatar.png" alt="Avatar do Usuário" class="avatar-img">
+                <p class="avatar-info">USER <br> XP 000 | <span class="coin-icon"></span> 0</p>
+                <button class="action-button">CONTINUAR JORNADA</button>
+            </div>
+            <div class="mission-area">
+                <h3 class="mission-title">MISSÕES DIÁRIAS</h3>
+                <ul class="mission-list">
+                    <li>Lorem ipsum ipus 1/2</li>
+                    <li>Lorem ipsum ipus</li>
+                    <li>Lorem ipsum ipus 0/5</li>
+                </ul>
+                <button class="view-missions-button">VER MISSÕES</button>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="../js/lobby.js"></script>
-  <script src="../js/logout.js"></script>
 </body>
 </html>

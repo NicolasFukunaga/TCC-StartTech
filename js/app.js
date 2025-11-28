@@ -310,3 +310,11 @@ chatSend.addEventListener("click", enviarMensagem);
 chatInput.addEventListener("keypress", e => {
   if (e.key === "Enter") enviarMensagem();
 });
+
+fetch("http://localhost:8080/oi")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data.mensagem); // Deve exibir: "Oi do back-end!"
+  })
+  
+

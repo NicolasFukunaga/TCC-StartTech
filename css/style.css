@@ -63,7 +63,7 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 5px;
+  height: 2px;
   background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
   background-size: 400% 400%;
   animation: gradientMove 5s ease infinite;
@@ -147,48 +147,37 @@ body {
   margin-top: 8rem;
 }
 
-/* Fundo de vídeo ocupa toda a área da seção */
 .video-fundo {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-}
-
-/* Configuração do vídeo */
-.video-fundo video {
-  position: absolute;
-  inset: 0;
+  position: fixed;     /* fixa no fundo da tela */
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: 0;
+  overflow: hidden;    /* evita barras */
+  z-index: -1;         /* fica atrás do conteúdo */
 }
 
-/* Borda gradiente animada ao redor do vídeo */
-.video-fundo::before {
-  content: "";
+.video-fundo iframe {
   position: absolute;
-  inset: 0;
-  padding: 3px;
-  background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
-  background-size: 400% 400%;
-  z-index: 2;
-  pointer-events: none;
-  animation: borderFlow 6s linear infinite;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: xor;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  min-width: 120%;
+  min-height: 120%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;    /* preenche sem deformar */
+  pointer-events: none; /* impede clique no vídeo */
 }
 
-/* Camada escura sobre o vídeo */
 .video-fundo::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.60); /* escurece o fundo */
   z-index: 1;
 }
+
 
 /* Animação de fluxo da borda */
 @keyframes borderFlow {
@@ -586,7 +575,7 @@ body {
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: gradientMove 5s ease infinite;
+  animation: gradientMove 10s ease infinite;
 }
 
 /* ============================================================
@@ -944,7 +933,7 @@ body {
   content: "";
   position: absolute;
   inset: -3px;
-  background: linear-gradient(120deg, #00ffff, #7b2fff, #00ffff);
+  background: linear-gradient(120deg, #000000, #3237c5, #000000);
   background-size: 300% 300%;
   border-radius: 25px;
   animation: bordaAnimada 6s linear infinite;
