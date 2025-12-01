@@ -130,45 +130,6 @@ formLogin.addEventListener('submit', (e) => {
   window.location.href = '../html/lobby.html';
 });
 
-/* ============================================================
-   FEEDBACK - CARROSSEL DE DEPOIMENTOS
-   ============================================================ */
-const feedbackCards = document.querySelectorAll('.feedback-card');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-let currentIndex = 0;
-
-// Função para exibir o card ativo
-function showCard(index) {
-  feedbackCards.forEach((card, i) => {
-    card.classList.remove('active');
-    if (i === index) {
-      card.classList.add('active');
-    }
-  });
-}
-
-// Botão "próximo"
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % feedbackCards.length;
-  showCard(currentIndex);
-});
-
-// Botão "anterior"
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + feedbackCards.length) % feedbackCards.length;
-  showCard(currentIndex);
-});
-
-// Alternância automática de feedbacks a cada 6 segundos
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % feedbackCards.length;
-  showCard(currentIndex);
-}, 6000);
-
-/* ============================================================
-   TEMA ESCURO / CLARO
-   ============================================================ */
 
    /* ============================================================
    EFEITO DE PARTÍCULAS GALÁCTICAS
@@ -310,3 +271,135 @@ chatSend.addEventListener("click", enviarMensagem);
 chatInput.addEventListener("keypress", e => {
   if (e.key === "Enter") enviarMensagem();
 });
+
+
+// ==============================
+// QUIZ DA AURY - IDEIA 4
+// ==============================
+
+const startBtn = document.getElementById("startQuizBtn");
+const nextBtn = document.getElementById("nextQuestionBtn");
+
+const quizStart = document.getElementById("quiz-start");
+const quizQuestion = document.getElementById("quiz-question");
+const quizResult = document.getElementById("quiz-result");
+
+const questionText = document.getElementById("questionText");
+const optionsContainer = document.getElementById("optionsContainer");
+
+const resultTitle = document.getElementById("resultTitle");
+const resultText = document.getElementById("resultText");
+const resultButton = document.getElementById("resultButton");
+
+// PERGUNTAS DO QUIZ
+const quiz = [
+  {
+    question: "Quando você recebe dinheiro, o que faz primeiro?",
+    options: [
+      { text: "Gasto com algo que quero na hora", score: 0 },
+      { text: "Pago contas e o resto eu gasto", score: 1 },
+      { text: "Separo uma parte para guardar", score: 2 }
+    ]
+  },
+  {
+    question: "Você costuma acompanhar seus gastos?",
+    options: [
+      { text: "Nunca acompanho", score: 0 },
+      { text: "Às vezes, quando lembro", score: 1 },
+      { text: "Sim, sempre controlo tudo", score: 2 }
+    ]
+  },
+  {
+    question: "Se surgisse uma emergência hoje, você teria reserva?",
+    options: [
+      { text: "Nenhuma reserva", score: 0 },
+      { text: "Tenho pouca coisa guardada", score: 1 },
+      { text: "Tenho uma reserva organizada", score: 2 }
+    ]
+  }
+];
+
+let currentQuestion = 0;
+let totalScore = 0;
+
+// ==============================
+// INICIAR QUIZ
+// ==============================
+startBtn.addEventListener("click", () => {
+  quizStart.classList.add("hidden");
+  quizQuestion.classList.remove("hidden");
+  loadQuestion();
+});
+
+// ==============================
+// CARREGAR PERGUNTA
+// ==============================
+function loadQuestion() {
+  const q = quiz[currentQuestion];
+  questionText.textContent = q.question;
+
+  optionsContainer.innerHTML = "";
+
+  q.options.forEach((opt, index) => {
+    const btn = document.createElement("button");
+    btn.textContent = opt.text;
+
+    btn.onclick = () => {
+      totalScore += opt.score;
+      nextBtn.classList.remove("hidden");
+      disableOptions();
+    };
+
+    optionsContainer.appendChild(btn);
+  });
+}
+
+function disableOptions() {
+  const all = optionsContainer.querySelectorAll("button");
+  all.forEach(btn => btn.disabled = true);
+}
+
+// ==============================
+// PRÓXIMA PERGUNTA
+// ==============================
+nextBtn.addEventListener("click", () => {
+  currentQuestion++;
+
+  if (currentQuestion >= quiz.length) {
+    showResults();
+    return;
+  }
+
+  nextBtn.classList.add("hidden");
+  loadQuestion();
+});
+
+// ==============================
+// RESULTADO FINAL
+// ==============================
+function showResults() {
+  quizQuestion.classList.add("hidden");
+  quizResult.classList.remove("hidden");
+
+  if (totalScore <= 2) {
+    resultTitle.textContent = "⚠️ Você está no começo da jornada financeira!";
+    resultText.textContent =
+      "Mas relaxa! A Aury pode te ajudar a aprender o básico e organizar sua vida financeira.";
+    resultButton.textContent = "Começar pelo Plano Essential";
+    resultButton.href = "html/matricula_essential.html";
+  } 
+  else if (totalScore <= 4) {
+    resultTitle.textContent = "📘 Você está no caminho certo!";
+    resultText.textContent =
+      "Você tem certa noção sobre dinheiro, mas pode evoluir muito mais com a Aury.";
+    resultButton.textContent = "Recomendamos o Plano Plus";
+    resultButton.href = "html/matricula_plus.html";
+  } 
+  else {
+    resultTitle.textContent = "🚀 Você é muito bom com dinheiro!";
+    resultText.textContent =
+      "Mas ainda pode levar sua vida financeira para outro nível.";
+    resultButton.textContent = "Plano Pro é perfeito para você";
+    resultButton.href = "html/matricula_pro.html";
+  }
+}
