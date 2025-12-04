@@ -128,7 +128,6 @@ body {
   
   /* Animações bem leves */
   transition: 
-    background 0.3s ease,
     transform 0.15s ease,
     box-shadow 0.2s ease;
   
@@ -148,60 +147,6 @@ body {
    ------------------------------------------------------------
    - Define a seção principal com vídeo de fundo, textos e botão.
    ============================================================ */
-.home {
-  color: #fff;
-  margin-top: 8rem;
-}
-
-/* Fundo de vídeo ocupa toda a área da seção */
-.video-fundo {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-}
-
-/* Configuração do vídeo */
-.video-fundo video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-/* Borda gradiente animada ao redor do vídeo */
-.video-fundo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 3px;
-  background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
-  background-size: 400% 400%;
-  z-index: 2;
-  pointer-events: none;
-  animation: borderFlow 6s linear infinite;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: xor;
-}
-
-/* Camada escura sobre o vídeo */
-.video-fundo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 1;
-}
-
-/* Animação de fluxo da borda */
-@keyframes borderFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 
 /* Estrutura geral da hero */
 .hero {
@@ -231,15 +176,15 @@ body {
   font-weight: 800;
   margin-bottom: 1.2rem;
   line-height: 1.3;
-  text-shadow: 0 0 18px rgb(0, 255, 242),
-               0 0 28px rgba(0, 255, 234, 0.4);
+  text-shadow: 0 0 18px rgb(212, 0, 255),
+               0 0 28px rgba(85, 5, 101, 0.4);
 }
 
 /* Parágrafo da hero */
 .texto-hero p {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: white;
   line-height: 1.6;
   margin-bottom: 3rem;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
@@ -248,7 +193,7 @@ body {
 /* Animação de leve flutuação no texto */
 @keyframes floatText {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-15px); }
   100% { transform: translateY(0); }
 }
 
@@ -263,7 +208,7 @@ body {
 .btn-principal {
   margin-top: 7rem;
   display: inline-block;
-  background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
+  background: linear-gradient(90deg, #6a11cb, #3c80ff); /* Roxo → Azul */
   background-size: 400% 400%;
   padding: 1.4rem 3.2rem;
   border-radius: 12px;
@@ -271,32 +216,13 @@ body {
   font-weight: bold;
   color: #fff;
   text-decoration: none;
-  animation: gradientMove 5s ease infinite;
-  box-shadow: 0 0 20px rgb(0, 255, 242);
   transition: all 0.3s ease;
 }
 
 /* Efeito hover do botão */
 .btn-principal:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 30px rgba(123, 47, 255, 1);
-}
-
-/* ============================================================
-   MOEDA FLUTUANTE (ANIMAÇÃO)
-   ============================================================ */
-.coin-float {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: -100px;
-  z-index: 5;
-  position: relative;
-}
-
-.coin-float img {
-  width: 220px;
-  animation: float 4s ease-in-out infinite;
+  box-shadow: 0 0 30px rgb(181, 3, 252);
 }
 
 /* ============================================================
@@ -314,14 +240,14 @@ body {
 }
 
 .como-funciona h2 {
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 800;
   margin-bottom: 1rem;
   text-shadow: 0 0 20px rgba(123, 47, 255, 0.6);
 }
 
 .como-funciona .subtitulo {
-  font-size: 1.9rem;
+  font-size: 3rem;
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 5rem;
   font-weight: 500;
@@ -369,7 +295,7 @@ body {
 
 /* Título com gradiente animado */
 .etapa h3 {
-  font-size: 2.6rem;
+  font-size: 3.3rem;
   margin-bottom: 1.4rem;
   font-weight: 700;
   background: linear-gradient(90deg, #7b2fff, #b84dff, #ff66cc, #7b2fff);
@@ -389,7 +315,7 @@ body {
 
 /* Texto interno do card */
 .etapa p {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
@@ -399,7 +325,7 @@ body {
 /* Animação de flutuação lateral */
 @keyframes floatSide {
   0% { transform: translateX(0); }
-  50% { transform: translateX(25px); }
+  50% { transform: translateX(15px); }
   100% { transform: translateX(0); }
 }
 
@@ -418,7 +344,7 @@ body {
 }
 
 .beneficios h3 {
-  font-size: 4rem;
+  font-size: 6rem;
   margin-bottom: 6rem;
   text-shadow: 0 0 15px rgba(123, 47, 255, 0.6);
 }
@@ -454,13 +380,13 @@ body {
 }
 
 .card h4 {
-  font-size: 2.4rem;
+  font-size: 3rem;
   margin: 0 0 1rem 0;
   line-height: 1.1;
 }
 
 .card p {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   margin: 0;
   max-width: 28rem;
 }
@@ -730,14 +656,14 @@ body {
 
 /* Título da seção */
 .planos-intro h2 {
-  font-size: 4rem;
+  font-size: 6rem;
   margin-bottom: 1rem;
   text-shadow: 0 0 14px rgba(123, 47, 255, 0.6);
 }
 
 /* Subtítulo da seção */
 .planos-intro p {
-  font-size: 2rem;
+  font-size: 3.5rem;
   margin-bottom: 4.5rem;
   color: rgba(255, 255, 255, 0.85);
 }
@@ -755,16 +681,16 @@ body {
    CARD INDIVIDUAL DE PLANO
    ============================================================ */
 .plan-card {
-  width: 360px;
-  min-height: 500px;
+  width: 380px;
+  min-height: 560px;
   background: linear-gradient(180deg, rgba(21, 17, 37, 0.85), rgba(15, 12, 30, 0.95));
   border-radius: 20px;
-  padding: 3.2rem 2.6rem;
+  padding: 3.8rem 3.2rem;
   box-shadow: 0 12px 28px rgba(10, 6, 30, 0.5);
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start; /* <<< ALINHAMENTO CORRIGIDO */
   align-items: center;
   text-align: center;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -816,14 +742,14 @@ body {
 
 /* Nome do plano */
 .plan-top h3 {
-  font-size: 2.8rem;
+  font-size: 4rem;
   letter-spacing: 0.4px;
   text-transform: uppercase;
 }
 
 /* Preço do plano */
 .plan-price {
-  font-size: 2.6rem;
+  font-size: 3.3rem;
   font-weight: 700;
   background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
   -webkit-background-clip: text;
@@ -834,7 +760,7 @@ body {
 
 /* Complemento do preço */
 .price-small {
-  font-size: 1.6rem;
+  font-size: 2.6rem;
   font-weight: 500;
   margin-left: 0.4rem;
   color: rgba(255, 255, 255, 0.85);
@@ -846,9 +772,9 @@ body {
 .plan-desc {
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 1.6rem;
-  font-size: 1.65rem;
+  font-size: 2rem;
   line-height: 1.55;
-  min-height: 80px;
+  min-height: 130px; /* <<< ALTURA IGUAL EM TODOS OS CARDS */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -859,14 +785,15 @@ body {
 .plan-features {
   list-style: none;
   margin: 0 0 2.2rem 0;
-  padding: 0;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  font-size: 1.65rem;
+  font-size: 2rem;
   color: rgba(255, 255, 255, 0.9);
   text-align: left;
   width: 100%;
+  flex-grow: 1; /* <<< ALINHAMENTO PERFEITO ATÉ O BOTÃO */
 }
 
 /* Ícone ✔ personalizado */
@@ -887,37 +814,12 @@ body {
 }
 
 /* ============================================================
-   BOTÃO DE AÇÃO DO CARD
-   ============================================================ */
-.plan-cta {
-  width: 100%;
-  padding: 1.4rem 1.8rem;
-  border-radius: 14px;
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-align: center;
-  color: #fff;
-  background: linear-gradient(270deg, #00ffff, #7b2fff, #00ffff);
-  background-size: 400% 400%;
-  text-decoration: none;
-  animation: gradientMove 5s ease infinite;
-  box-shadow: 0 0 22px rgba(0, 255, 242, 0.7);
-  transition: all 0.3s ease;
-  margin-top: auto;
-}
-
-/* Efeito hover do botão */
-.plan-cta:hover {
-  transform: scale(1.06);
-  box-shadow: 0 0 35px rgba(123, 47, 255, 0.9);
-}
-
-/* ============================================================
    VARIAÇÕES DE CARD
    ============================================================ */
 .plan-free {
   border: 1px solid rgba(0, 255, 242, 0.08);
 }
+
 .plan-free .plan-price {
   align-self: flex-start;
   margin-left: 1.2rem;
@@ -950,12 +852,12 @@ body {
   content: "";
   position: absolute;
   inset: -3px;
-  background: linear-gradient(120deg, #00ffff, #7b2fff, #00ffff);
+  background: linear-gradient(120deg, #0e0d0d, #9107fa, #00ffff);
   background-size: 300% 300%;
   border-radius: 25px;
   animation: bordaAnimada 6s linear infinite;
   z-index: 0;
-  filter: blur(8px);
+  filter: blur(10px);
   opacity: 0.7;
 }
 
@@ -1059,7 +961,7 @@ body {
 }
 
 .aury-texto h2 {
-  font-size: 4.4rem;
+  font-size: 5rem;
   margin-bottom: 2.2rem;
   line-height: 1.2;
   text-shadow: 0 0 20px rgba(123, 47, 255, 0.6);
@@ -1067,9 +969,8 @@ body {
 
 /* Palavras destacadas no título */
 .aury-texto h2 span {
-  background: linear-gradient(90deg, #00ffff, #7b2fff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: white;
+  text-shadow: #00ffff;
 }
 
 /* Parágrafos descritivos */
@@ -1077,7 +978,7 @@ body {
   font-size: 2rem;
   line-height: 1.8;
   margin-bottom: 1.8rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: white;
 }
 
 .aury-texto .descricao {
@@ -1091,8 +992,7 @@ body {
 .aury-texto .destaque {
   font-size: 2.1rem;
   font-weight: 700;
-  color: #00ffff;
-  text-shadow: 0 0 12px rgba(0, 255, 242, 0.6);
+  color: #ffffff;
 }
 
 /* Imagem principal da seção */
@@ -1176,6 +1076,8 @@ body {
   }
 }
 
+
+
 /* ============================================================
    ESPAÇAMENTO ENTRE SEÇÕES
    ============================================================ */
@@ -1200,107 +1102,6 @@ section,
 /* Aumenta espaçamento interno entre cards */
 .etapas, .cards, .plan-cards {
   gap: 6rem;
-}
-
-/* ============================================================
-   SEÇÃO: FEEDBACK DE USUÁRIOS
-   ============================================================ */
-
-/* Container principal da seção de depoimentos */
-.feedback-section {
-  position: relative;
-  color: #fff;
-  padding: 8rem 4rem;
-  text-align: center;
-  overflow: hidden;
-}
-
-/* ---- Títulos e subtítulo ---- */
-.feedback-section h2 {
-  font-size: 3.8rem;
-  margin-bottom: 1.2rem;
-  text-shadow: 0 0 20px rgba(0, 255, 242, 0.6);
-}
-
-.feedback-section .subtitulo {
-  font-size: 1.8rem;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 5rem;
-}
-
-/* ---- Carrossel de feedbacks ---- */
-.feedback-carousel {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 280px;
-  perspective: 1000px;
-}
-
-/* Cartões individuais de feedback */
-.feedback-card {
-  position: absolute;
-  opacity: 0;
-  transform: scale(0.9) translateY(20px);
-  transition: all 0.8s ease;
-  border: 2px solid rgba(0, 255, 242, 0.25);
-  border-radius: 16px;
-  box-shadow: 0 0 25px rgba(0, 253, 241, 0.25);
-  padding: 2.5rem 2rem;
-  width: 340px;
-  max-width: 90%;
-}
-
-/* Estado ativo do card */
-.feedback-card.active {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-  box-shadow: 0 0 40px rgba(0, 255, 242, 0.45);
-}
-
-/* Texto e nome do autor */
-.feedback-card p {
-  font-size: 1.6rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.feedback-card h4 {
-  font-size: 1.4rem;
-  color: #00ffff;
-}
-
-/* Estilo das estrelas de avaliação */
-.estrelas {
-  font-size: 2rem;
-  color: #ffd700;
-  margin-bottom: 1rem;
-}
-
-/* ---- Botões do carrossel ---- */
-.feedback-controles {
-  margin-top: 3rem;
-}
-
-.feedback-controles button {
-  background: transparent;
-  border: 2px solid #00ffff;
-  color: #00ffff;
-  font-size: 2rem;
-  padding: 0.6rem 1.2rem;
-  margin: 0 1rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(0, 255, 242, 0.3);
-}
-
-.feedback-controles button:hover {
-  background: #00ffff;
-  color: #0b0018;
-  box-shadow: 0 0 25px rgba(0, 255, 242, 0.8);
 }
 
 /* ---- Fundo animado com partículas ---- */
@@ -1652,9 +1453,125 @@ section,
   border-radius: 10px;
 }
 
-/* ============================================================
-   MEDIA QUERY 
-   ============================================================ */
+/* ========================== */
+/* QUIZ AURY — IDEIA 4        */
+/* ========================== */
+
+.aury-quiz-section {
+  width: 100%;
+  background: #0a001f;
+  padding: 140px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aury-quiz-card {
+  background: linear-gradient(145deg, #320080, #150033);
+  width: 95%;
+  max-width: 850px; /* AUMENTADO */
+  padding: 70px 60px; /* AUMENTADO */
+  border-radius: 40px; /* AUMENTADO */
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 60px #7a4bffb5; /* MAIS FORTE */
+  border: 3px solid #7a4bff90; /* MAIS GROSSO */
+  transform: scale(1);
+  transition: 0.3s ease;
+}
+
+.aury-quiz-card:hover {
+  transform: scale(1.01);
+}
+
+/* Avatar */
+.aury-avatar {
+  width: 170px; /* AUMENTADO */
+  margin-bottom: 25px;
+  filter: drop-shadow(0 0 25px #7a4bff);
+}
+
+/* Textos */
+.aury-quiz-card h2 {
+  font-size: 2.7rem; /* AUMENTADO */
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.aury-quiz-card p {
+  margin-bottom: 35px;
+  opacity: 0.95;
+  font-size: 2.3rem; /* AUMENTADO */
+  line-height: 1.7;
+}
+
+/* Botão principal */
+.quiz-btn {
+  background: linear-gradient(90deg, #7a4bff, #4f32ff);
+  color: white;
+  border: none;
+  padding: 18px 40px; /* AUMENTADO */
+  border-radius: 18px; /* AUMENTADO */
+  font-size: 1.8rem; /* AUMENTADO */
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+  max-width: 350px; /* AUMENTADO */
+  margin-top: 30px;
+}
+.quiz-btn, 
+.quiz-btn a {
+  text-decoration: none !important;
+}
+.quiz-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px #7a4bff;
+}
+
+/* Opções */
+#optionsContainer button {
+  width: 100%;
+  padding: 18px; /* AUMENTADO */
+  margin: 15px 0;
+  background: rgba(255, 255, 255, 0.12); /* MAIS VISÍVEL */
+  border: 2px solid #7a4bff77; /* MAIS GROSSO */
+  border-radius: 16px; /* AUMENTADO */
+  color: white;
+  font-size: 2rem; /* AUMENTADO */
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#optionsContainer button:hover {
+  background: #7a4bff44;
+  transform: scale(1.04);
+  box-shadow: 0 0 20px #7a4bff55;
+}
+
+/* Resultado */
+.quiz-result-box h2 {
+  font-size: 3rem; /* AUMENTADO */
+  margin-bottom: 25px;
+}
+
+.quiz-result-box p {
+  font-size: 2.4rem; /* AUMENTADO */
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Pergunta principal do quiz */
+#questionText {
+  font-size: 2.2rem;      /* AUMENTADO */
+  font-weight: 600;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
 
 
 

@@ -57,16 +57,6 @@
     <main class="home">
       <!-- HERO -->
       <section class="hero">
-        <!-- 🎬 VÍDEO LOCAL DE FUNDO -->
-        <div class="video-fundo">
-          <video autoplay muted loop playsinline>
-            <source
-              src="gif/Visual Classic Blue Galaxy HD - JHAG Productions (1080p, h264, youtube).mp4"
-              type="video/mp4"
-            />
-          </video>
-        </div>
-
         <!-- Texto principal -->
         <div class="texto-hero">
           <h2>
@@ -84,15 +74,6 @@
           </a>
         </div>
       </section>
-
-      <!-- 💰 Moeda flutuante fora da HERO -->
-      <div class="coin-float">
-        <img
-          src="gif/coin-20749.gif"
-          alt="Moeda girando"
-        />
-      </div>
-      
 
       <!-- COMO FUNCIONA -->
       <section class="como-funciona">
@@ -267,12 +248,6 @@
               <li>Testes e quizzes básicos</li>
               <li>Sem limite de tempo</li>
             </ul>
-            <a
-              href="html/matricula_essential.html"
-              class="btn-principal plan-cta"
-            >
-              Matricule-se
-            </a>
           </div>
 
           <!-- Plus -->
@@ -292,12 +267,6 @@
               <li>Cursos intermediários e simuladores</li>
               <li>Certificados de conclusão</li>
             </ul>
-            <a
-              href="html/matricula_plus.html"
-              class="btn-principal plan-cta"
-            >
-              Matricule-se
-            </a>
           </div>
 
           <!-- Pro -->
@@ -319,55 +288,46 @@
                 Acesso à Aury – assistente IA para revisar e guiar seus estudos
               </li>
             </ul>
-            <a
-              href="html/matricula_pro.html"
-              class="btn-principal plan-cta"
-            >
-              Matricule-se
-            </a>
           </div>
         </div>
       </section>
+<!-- QUIZ AURY - IDEIA 4 -->
+<section class="aury-quiz-section">
+  <div class="aury-quiz-card">
 
-      <!-- FEEDBACK -->
-      <section class="feedback-section">
-        <h2>O que nossos usuários dizem 💬</h2>
-        <p class="subtitulo">Depoimentos reais de quem já usa a StarterCash</p>
+    <!-- FAÍSCAS ELÉTRICAS -->
+    <div class="faisca"></div>
+    <div class="faisca"></div>
+    <div class="faisca"></div>
+    <div class="faisca"></div>
+    <div class="faisca"></div>
 
-        <div class="feedback-carousel">
-          <div class="feedback-card active">
-            <p>
-              “A Aury é incrível! Sinto que tenho uma mentora financeira 24h por
-              dia, com dicas práticas e diretas.”
-            </p>
-            <div class="estrelas">★★★★★</div>
-            <h4>— Mariana Costa</h4>
-          </div>
+    <div id="quiz-start">
+      <img src="imgs/aury.png" alt="Aury" class="aury-avatar">
+      <h2>🧠 Quer descobrir qual plano combina melhor com seu perfil!?</h2>
+      <p>Responda 3 perguntas rápidas e receba uma recomendação personalizada.</p>
+      <button id="startQuizBtn" class="quiz-btn">Começar Quiz</button>
+    </div>
 
-          <div class="feedback-card">
-            <p>
-              “A plataforma é super envolvente e fácil de usar. Estou aprendendo
-              e aplicando na vida real!”
-            </p>
-            <div class="estrelas">★★★★★</div>
-            <h4>— Rafael Mendes</h4>
-          </div>
+    <div id="quiz-question" class="hidden">
+      <h3 id="questionText"></h3>
 
-          <div class="feedback-card">
-            <p>
-              “O sistema da StarterCash me ajudou a organizar minhas finanças de
-              forma divertida. Recomendo demais!”
-            </p>
-            <div class="estrelas">★★★★★</div>
-            <h4>— Carla Moreira</h4>
-          </div>
-        </div>
+      <div id="optionsContainer"></div>
 
-        <div class="feedback-controles">
-          <button class="prev">←</button>
-          <button class="next">→</button>
-        </div>
-      </section>
+      <button id="nextQuestionBtn" class="quiz-btn hidden">Próxima</button>
+    </div>
+
+    <div id="quiz-result" class="hidden quiz-result-box">
+      <img src="imgs/aury.png" alt="Aury" class="aury-avatar">
+      <h2 id="resultTitle"></h2>
+      <p id="resultText"></p>
+
+      <a id="resultButton" href="#" class="quiz-btn"></a>
+    </div>
+
+  </div>
+</section>
+
     </main>
 
     <!-- FOOTER -->
